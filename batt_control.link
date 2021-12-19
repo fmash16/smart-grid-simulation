@@ -1,0 +1,26 @@
+# Specify the target
+target matlab
+
+# Window show/keep/hide
+window hide
+
+# Output buffer
+output 65536
+
+# Synchronize the clock
+global clock
+
+# Matlab command on init
+on_init ans=GLD_OK;
+
+# Matlab command on sync / co-simulation
+on_sync [batt_power_out] = batt_controller(batt_22_soc, house22_power, price); ans=TS_NEVER; 
+
+# Matlab command on term (after co-simulation)
+on_term ans=GLD_OK;
+
+# Variables to import from matlab to gridlabd and to export from gridlabd to Matlab workspace (by name)
+export batt_22.state_of_charge batt_22_soc
+export House22.base_power_A house22_power
+export Market_1.current_market.clearing_price price
+import inv_22_batt.P_Out  batt_power_out

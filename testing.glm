@@ -1,0 +1,856 @@
+// Smart Grid Simulation
+
+
+//#set debug=1;
+#set profiler=0;
+#set relax_naming_rules=1
+
+// Deltamode
+// #set deltamode_timestep=100000000       //100 ms
+// #set deltamode_maximumtime=60000000000  //1 minute
+// #set deltamode_iteration_limit=10       //Iteration limit
+
+// MATLAB linked files
+link "batt_control.link";
+link "auction_control.link";
+
+// Includes
+#include "data/battery_schedule.glm"
+#include "auction/auction_schedule.glm"
+#include "batt_controller/test.schedule"
+
+
+
+//--------------------------------------------------------------------------------
+//  Clock time
+//---------------------------------------------------------------------------------
+// TODO: Update to current time and time zone
+
+clock {
+    // timezone PST+8PDT;
+    timezone GMT0+6GMT0;
+    starttime '2019-09-30 00:00:00';
+    stoptime '2019-09-30 23:59:00';
+}
+
+
+//---------------------------------------------------------------------------------
+//  Modules
+//---------------------------------------------------------------------------------
+module tape;
+module climate;
+module powerflow {
+    // enable_subsecond_models true;   //Enables deltamode for the powerflow module
+    // deltamode_timestep 10.0 ms;     //Good timestep value for electromechanical diesels
+    solver_method NR;               //NR MUST be used for deltamode
+    // all_powerflow_delta true;       
+    default_maximum_voltage_error 1e-9;
+
+    nominal_frequency 50;
+    current_frequency 50;
+};
+module generators {
+    enable_subsecond_models true;
+};
+module market;
+module assert;
+module residential;
+
+
+//---------------------------------------------------------------------------------
+//  Climate
+//---------------------------------------------------------------------------------
+// TODO: Find Dhaka weather data
+
+object csv_reader {
+     name CSVREADER;
+     filename "data/FeniWeather.csv";
+}
+
+object climate {
+     name "FENI";
+     tmyfile "data/FeniWeather.csv";
+     reader CSVREADER;
+};
+
+// object climate {
+//     name "Spokane WA";
+//     tmyfile "data/WA-Spokane-727850.tmy3";
+//     interpolate LINEAR;
+// }
+
+
+//---------------------------------------------------------------------------------
+//  Auction Market 
+//---------------------------------------------------------------------------------
+
+class auction {
+	double current_price_mean_24h;
+	double current_price_stdev_24h;
+}
+
+object auction {
+        name Market_1;
+
+        unit MWh;
+        period 60;
+        init_price 3.5;
+        init_stdev 0.2;
+        verbose FALSE;
+        special_mode NONE;
+        warmup 0;
+        object multi_recorder {
+                property current_market.clearing_price,current_market.clearing_quantity,house_buyer_1:price,house_buyer_1:quantity,buyer_2:price,buyer_2:quantity,seller_1:price,seller_1:quantity,seller_2:price,seller_2:quantity;
+                file "output/test_auction.csv";
+                interval 60;
+                limit 240;
+        };
+
+}
+
+object stub_bidder {
+        name house_buyer_1;
+        role BUYER;
+        bid_period 60;
+        market Market_1;
+        // price buyer_price1*1;
+        quantity buyer_quantity1*1;
+        count 10000;
+}
+
+object stub_bidder {
+        name buyer_2;
+        role BUYER;
+        bid_period 60;
+        market Market_1;
+        price buyer_price2*1;
+        quantity buyer_quantity2*1;
+        count 10000;
+}
+
+object stub_bidder {
+        name seller_1;
+        role SELLER;
+        bid_period 60;
+        market Market_1;
+        price seller_price1*1;
+        quantity seller_quantity1*1;
+        count 10000;
+}
+
+object stub_bidder {
+        name seller_2;
+        role SELLER;
+        bid_period 60;
+        market Market_1;
+        price seller_price2*1;
+        quantity seller_quantity2*1;
+        count 10000;
+}
+
+
+//---------------------------------------------------------------------------------
+//  Nodes
+//---------------------------------------------------------------------------------
+
+// Source Bus
+object node {
+    name sourceBus;
+    phases ABC;
+    nominal_voltage 6350.852961;
+    voltage_A 6668.395609+0.0d;
+    voltage_B 6668.395609-120.0d;
+    voltage_C 6668.395609+120.0d;
+    bustype SWING;
+}
+
+// object node {
+//     name generator_node;
+//     bustype SWING;
+//     phases ABC;
+//     nominal_voltage 6350.852961;
+//     frequency_measure_type PLL;
+//     object recorder {
+//         //flags DELTAMODE;
+//         file "output/generator_node.csv";
+//         interval 1;
+//         limit 100000000000;
+//         property
+//         voltage_A,voltage_B,voltage_C,voltage_AB,voltage_BC,voltage_CA,current_A,current_B,current_C,power_A,power_B,power_C,measured_angle_A,measured_frequency_A,measured_angle_B,measured_frequency_B,measured_angle_C,measured_frequency_C,measured_frequency;
+//     };
+// }
+// 
+// object diesel_dg {
+//     parent generator_node;
+//     name Gen_Bus_1;
+//     Rated_VA 1MVA;
+//     //flags DELTAMODE;
+//     Gen_type DYN_SYNCHRONOUS;
+//     Exciter_type SEXS;
+//     Governor_type DEGOV1;
+//     rotor_speed_convergence 0.001;
+//     //temp properties - sync with example
+//     power_out_A 4000.0;
+//     power_out_B 3000.0;
+//     power_out_C 4000.0;
+//     Governor_type NO_GOV;
+//     Exciter_type SEXS;
+//     Governor_type DEGOV1;
+//     object recorder {
+//         property
+//         rotor_speed,rotor_angle,flux1d,flux2q,EpRotated,VintRotated,Eint_A,Eint_B,Eint_C,Irotated,pwr_electric.real,pwr_electric.imag,pwr_mech;
+//         //flags DELTAMODE;
+//         //interval -1;
+//         interval 60;
+//         file "output/Gen_1_Speed.csv";
+//     };
+// }
+// 
+// object overhead_line {
+//       name generator_branch;
+//       phases ABCN;
+//       from generator_node;
+//       to sourceBus;
+//       length 50;
+//       configuration line_config_A;
+// }
+
+object line_spacing {
+    name line_spacing_200;
+    distance_AB 2.5;
+    distance_BC 4.5;
+    distance_AC 7.0;
+    distance_AN 5.656854;
+    distance_BN 4.272002;
+    distance_CN 5.0;
+}
+
+object overhead_line_conductor {
+    name overhead_line_conductor_100;
+    geometric_mean_radius .0446;
+    resistance 5;
+}
+
+object line_configuration {
+    name line_config_A;
+    conductor_A overhead_line_conductor_100;
+    conductor_B overhead_line_conductor_100;
+    conductor_C overhead_line_conductor_100;
+    conductor_N overhead_line_conductor_100;
+    spacing line_spacing_200;
+}
+
+
+
+// Branches from source
+// Branch
+//      > Sub-Branch
+
+object meter {
+    name Bus1;
+    phases ABC;
+    nominal_voltage 240;    
+}
+        object meter {
+            name Bus11;
+            phases ABC;
+            nominal_voltage 240;    
+        }
+        object meter {
+            name Bus12;
+            phases ABC;
+            nominal_voltage 240;    
+            power_market Market_1;
+            bill_day 1;
+            bill_mode HOURLY;
+            //object player {
+            //    file price.player;
+            //    property price;
+            //};
+        }
+        object meter {
+            name Bus13;
+            phases ABC;
+            nominal_voltage 240;    
+            power_market Market_1;
+            bill_day 1;
+            bill_mode HOURLY;
+        }
+
+object node {
+    name Bus2;
+    phases ABC;
+    nominal_voltage 240.17;    
+}
+        object meter {
+            name Bus21;
+            phases ABC;
+            nominal_voltage 240;    
+        }
+        object meter {
+            name Bus22;
+            phases ABC;
+            nominal_voltage 240;    
+            power_market Market_1;
+            bill_day 1;
+            bill_mode HOURLY;
+        }
+        object meter {
+            name Bus23;
+            phases ABC;
+            nominal_voltage 240;    
+        }
+
+object node {
+    name Bus3;
+    phases ABC;
+    nominal_voltage 240.17;    
+}
+        object meter {
+            name Bus31;
+            phases ABC;
+            nominal_voltage 240;    
+        }
+        object meter {
+            name Bus32;
+            phases ABC;
+            nominal_voltage 240;    
+        }
+        object meter {
+            name Bus33;
+            phases ABC;
+            nominal_voltage 240;    
+        }
+
+
+//---------------------------------------------------------------------------------
+//  Loads and PV generation
+//---------------------------------------------------------------------------------
+
+class player {
+    double value;
+}
+
+// load
+object load {
+    name House11;
+    parent Bus11;
+    phases AN;
+    nominal_voltage 240.00;
+    base_power_A LOAD1_player.value*20000;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+object player{
+    name LOAD1_player;
+    file data/loads/load_profile_1.player;
+}
+// distributed generation
+object inverter {
+    name batt_inv_11;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus11;
+    sense_object Bus11;
+    rated_power 10 kW;        //Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 7 kW;
+    charge_off_threshold 9 kW;
+    discharge_off_threshold 9.1 kW;
+    discharge_on_threshold 9.5 kW;
+    max_discharge_rate 4 kW;
+    max_charge_rate 4 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+}
+object battery {
+    name batt_11;
+    parent batt_inv_11;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 10 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+object inverter {
+    name inv_1;
+    parent Bus11;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 1 kVA;
+    //flags DELTAMODE;
+}
+
+object rectifier {
+    name rect_1;
+    parent inv_1;
+    phases "ABC";
+    // rectifier_efficiency 0.95;
+    rectifier_type SIX_PULSE;
+    generator_mode SUPPLY_DRIVEN;
+}
+
+object windturb_dg {
+    parent rect_1;
+    phases "ABC";
+    name windturb1;
+    Gen_status ONLINE;
+    Gen_mode CONSTANTP;
+    Turbine_Model GENERIC_IND_SMALL;
+}
+
+// Load
+object load {
+    name House12;
+    parent Bus12;
+    phases B;
+    nominal_voltage 240.00;
+    base_power_B LOAD2_player.value*20000;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD2_player;
+    file data/loads/load_profile_2.player;
+}
+// Distributed Generation
+object inverter {
+    name inv_12_sol;
+    parent Bus12;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_12;
+        parent inv_12_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        efficiency 0.2;
+        area 250;
+        //flags DELTAMODE;
+    };
+}
+object inverter {
+    name inv_12_batt;
+    parent Bus12;
+    sense_object Bus12;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    rated_power 15 kW;        //Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 7 kW;
+    charge_off_threshold 9 kW;
+    discharge_off_threshold 9.1 kW;
+    discharge_on_threshold 9.5 kW;
+    max_discharge_rate 4 kW;
+    max_charge_rate 4 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+}
+object battery {
+    name batt_12;
+    parent inv_12_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 15 kW;
+    nominal_voltage 240;
+    battery_capacity 100 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+
+// Load13
+object load {
+    name House13;
+    parent Bus13;
+    phases A;
+    nominal_voltage 240.00;
+    base_power_A LOAD4_player.value*20000;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+object player {
+     name LOAD3_player;
+     file data/loads/load_profile_3.player;
+}
+// Distributed Generation
+object inverter {
+    name inv_13_sol;
+    parent Bus13;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_13;
+        parent inv_13_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        efficiency 0.2;
+        area 100;
+        //flags DELTAMODE;
+    };
+}
+object inverter {
+    name inv_13_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus13;
+    sense_object Bus13;
+    rated_power 15 kW;        //Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 7 kW;
+    charge_off_threshold 9 kW;
+    discharge_off_threshold 9.1 kW;
+    discharge_on_threshold 9.5 kW;
+    max_discharge_rate 4 kW;
+    max_charge_rate 4 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+}
+object battery {
+    name batt_13;
+    parent inv_13_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 15 kW;
+    nominal_voltage 240;
+    battery_capacity 100 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+
+//object load {
+//    name House12;
+//    parent Bus12;
+//    phases A;
+//    nominal_voltage 240.00;
+//    base_power_A LOAD1_player.value*20000;
+//    power_fraction_A 1;
+//    power_pf_A 0.8;
+//}
+
+// Load 22
+object load {
+    name House22;
+    parent Bus22;
+    phases A;
+    nominal_voltage 240.00;
+    base_power_A LOAD4_player.value*20000;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+object player {
+     name LOAD4_player;
+     file data/loads/load_profile_1.player;
+}
+// Distributed Generation
+object inverter {
+    name inv_22_sol;
+    parent Bus22;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_22;
+        parent inv_22_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        efficiency 0.2;
+        area 100;
+        //flags DELTAMODE;
+    };
+}
+schedule pwr_schedule {
+    * 0-5 * * * 0.5;
+    * 6-10 * * * 1;
+    * 11-16 * * * 1;
+    * 17-23 * * * -0.25;
+}
+object inverter {
+    name inv_22_batt;
+    parent Bus22;
+    sense_object Bus22;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode CONSTANT_PQ;
+    generator_status ONLINE;
+    rated_power 15 kW;
+    inverter_efficiency .95;
+    //P_Out batt_22_schedule*3000;
+    P_Out 3000;
+    Q_Out 0.0;
+    //flags DELTAMODE;
+}
+
+
+object battery {
+    name batt_22;
+    parent inv_22_batt;
+    use_internal_battery_model true;
+    battery_type LI_ION;
+    battery_capacity 100 kWh;
+    base_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    object recorder {
+        property state_of_charge;
+        interval 600;
+        file "output/batt_22_soc.csv";
+    };
+    //flags DELTAMODE;
+}
+
+
+//---------------------------------------------------------------------------------
+// Configurations 
+//---------------------------------------------------------------------------------
+object line_configuration {
+      name line_configuration_1;
+      conductor_A overhead_line_conductor_1;
+      conductor_B overhead_line_conductor_1;
+      conductor_C overhead_line_conductor_1;
+      conductor_N overhead_line_conductor_1;
+      spacing line_spacing_1;
+}
+object line_spacing {
+      name line_spacing_1;
+      distance_AB 57.6 in;
+      distance_BC 57.6 in;
+      distance_AC 57.6 in;
+      distance_AN 51.6 in;
+      distance_BN 51.6 in;
+      distance_CN 51.6 in;
+}
+object overhead_line_conductor {
+      name overhead_line_conductor_1;
+      geometric_mean_radius 0.0217 ft;
+      resistance 0.350;
+}
+
+//---------------------------------------------------------------------------------
+// Substation tranformers 
+//---------------------------------------------------------------------------------
+
+// Transformer Configuration
+object transformer_configuration {
+    name TR1_conf;
+    connect_type DELTA_GWYE;
+    install_type UNKNOWN;
+    power_rating 800;
+    primary_voltage 11000;
+    secondary_voltage 416;
+    resistance 0.004;
+    reactance 0.04;
+
+}
+// Substation Transformer
+object transformer {
+    name TR1;
+    phases ABC;
+    from sourceBus;
+    to Bus1;
+    configuration TR1_conf;
+}
+object transformer {
+     name TR2;
+     phases ABC;
+     from sourceBus;
+     to Bus2;
+     configuration TR1_conf;
+}
+object transformer {
+     name TR3;
+     phases ABC;
+     from sourceBus;
+     to Bus3;
+     configuration TR1_conf;
+}
+
+
+//---------------------------------------------------------------------------------
+// Bus connections 
+//---------------------------------------------------------------------------------
+
+// Bus 1
+object overhead_line {
+    name LINE11;
+    phases ABC;
+    from Bus1;
+    to Bus11;
+    length 50m;
+    configuration line_configuration_1;
+}
+object overhead_line {
+    name LINE12;
+    phases ABC;
+    from Bus1;
+    to Bus12;
+    length 46m;
+    configuration line_configuration_1;
+}
+object overhead_line {
+    name LINE13;
+    phases ABC;
+    from Bus1;
+    to Bus13;
+    length 48m;
+    configuration line_configuration_1;
+}
+
+// Bus 2
+object overhead_line {
+    name LINE21;
+    phases ABC;
+    from Bus2;
+    to Bus21;
+    length 50m;
+    configuration line_configuration_1;
+}
+object overhead_line {
+    name LINE22;
+    phases ABC;
+    from Bus2;
+    to Bus22;
+    length 46m;
+    configuration line_configuration_1;
+}
+object overhead_line {
+    name LINE23;
+    phases ABC;
+    from Bus2;
+    to Bus23;
+    length 48m;
+    configuration line_configuration_1;
+}
+
+// Bus 3
+object overhead_line {
+    name LINE31;
+    phases ABC;
+    from Bus3;
+    to Bus31;
+    length 50m;
+    configuration line_configuration_1;
+}
+object overhead_line {
+    name LINE32;
+    phases ABC;
+    from Bus3;
+    to Bus32;
+    length 46m;
+    configuration line_configuration_1;
+}
+object overhead_line {
+    name LINE33;
+    phases ABC;
+    from Bus3;
+    to Bus33;
+    length 48m;
+    configuration line_configuration_1;
+}
+
+
+
+//---------------------------------------------------------------------------------
+// Data Recorders  
+//---------------------------------------------------------------------------------
+
+object multi_recorder {
+    name voltage_data;
+    file output/voltage_data.csv;
+    interval 600;
+    property sourceBus:voltage_A.real, Bus11:measured_voltage_A.real, Bus12:measured_voltage_B.real,Bus13:measured_voltage_A.real;
+}
+
+object multi_recorder {
+    name current_data;
+    file output/current_data.csv;
+    interval 600;
+    property Bus11:measured_current_A.real, Bus12:measured_current_B.real,Bus13:measured_current_A.real;
+}
+
+object multi_recorder {
+    name Bus11_data;
+    file output/Bus11_data.csv;
+    interval 600;
+    property House11:base_power_A, Bus11:measured_power.real, inv_1:VA_Out.real, batt_inv_11:VA_Out.real;
+}
+object multi_recorder {
+    name Bus12_data;
+    file output/Bus12_data.csv;
+    interval 600;
+    property House12:base_power_B, Bus12:measured_power.real, Bus12:measured_demand, inv_12_sol:VA_Out.real, batt_12:state_of_charge, inv_12_batt:VA_Out.real;
+}
+object multi_recorder {
+    name Bus13_data;
+    file output/Bus13_data.csv;
+    interval 600;
+    property House13:base_power_A, Bus13:measured_power.real, inv_13_sol:VA_Out.real, inv_13_batt:VA_Out.real;
+}
+object multi_recorder {
+    name Bus22_data;
+    file output/Bus22_data.csv;
+    interval 60;
+    property House22:base_power_A, Bus22:measured_power.real, inv_22_sol:VA_Out.real, inv_22_batt:VA_Out.real;
+}
+
+object recorder {
+    name auction_price;
+    parent Market_1;
+    file output/auction_price.csv;
+    interval 600;
+    property current_market.clearing_price;
+}
+
+object multi_recorder {
+    name bill_data;
+    file output/bill_data.csv;
+    interval 3600;
+    property Bus12:monthly_bill, Bus12:price;
+}
+
+object multi_recorder {
+    name compare;
+    file output/compare.csv;
+    interval 600;
+    property Bus13:measured_real_energy, Bus22:measured_real_energy;
+}
+
+object multi_recorder {
+    name compare_bill;
+    file output/compare_bill.csv;
+    interval 600;
+    property Bus13:monthly_bill, Bus22:monthly_bill;
+}
