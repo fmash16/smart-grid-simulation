@@ -1,0 +1,5005 @@
+
+// Load 1
+object load {
+    name LOAD1;
+    parent Bus34;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD1_player.value*1052.631579;
+    // base_power_A LOAD1_player.value*8052.631579;
+    base_power_A LOAD1_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD1_player;
+    file data/loads/load_profile_1.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_1_sol;
+    parent Bus34;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_1;
+        parent inv_1_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_1_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus34;
+    sense_object Bus34;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_1;
+    parent inv_1_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 2
+object load {
+    name LOAD2;
+    parent Bus47;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD2_player.value*1052.631579;
+    // base_power_B LOAD2_player.value*8052.631579;
+    base_power_B LOAD2_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD2_player;
+    file data/loads/load_profile_2.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_2_sol;
+    parent Bus47;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_2;
+        parent inv_2_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_2_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus47;
+    sense_object Bus47;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_2;
+    parent inv_2_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 3
+object load {
+    name LOAD3;
+    parent Bus70;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD3_player.value*1052.631579;
+    // base_power_A LOAD3_player.value*8052.631579;
+    base_power_A LOAD3_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD3_player;
+    file data/loads/load_profile_3.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_3_sol;
+    parent Bus70;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_3;
+        parent inv_3_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_3_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus70;
+    sense_object Bus70;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_3;
+    parent inv_3_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 4
+object load {
+    name LOAD4;
+    parent Bus73;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD4_player.value*1052.631579;
+    // base_power_A LOAD4_player.value*8052.631579;
+    base_power_A LOAD4_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD4_player;
+    file data/loads/load_profile_4.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_4_sol;
+    parent Bus73;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_4;
+        parent inv_4_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_4_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus73;
+    sense_object Bus73;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_4;
+    parent inv_4_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 5
+object load {
+    name LOAD5;
+    parent Bus74;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD5_player.value*1052.631579;
+    // base_power_A LOAD5_player.value*8052.631579;
+    base_power_A LOAD5_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD5_player;
+    file data/loads/load_profile_5.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_5_sol;
+    parent Bus74;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_5;
+        parent inv_5_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_5_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus74;
+    sense_object Bus74;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_5;
+    parent inv_5_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 6
+object load {
+    name LOAD6;
+    parent Bus83;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD6_player.value*1052.631579;
+    // base_power_B LOAD6_player.value*8052.631579;
+    base_power_B LOAD6_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD6_player;
+    file data/loads/load_profile_6.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_6_sol;
+    parent Bus83;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_6;
+        parent inv_6_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_6_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus83;
+    sense_object Bus83;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_6;
+    parent inv_6_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 7
+object load {
+    name LOAD7;
+    parent Bus178;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD7_player.value*1052.631579;
+    // base_power_B LOAD7_player.value*8052.631579;
+    base_power_B LOAD7_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD7_player;
+    file data/loads/load_profile_7.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_7_sol;
+    parent Bus178;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_7;
+        parent inv_7_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_7_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus178;
+    sense_object Bus178;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_7;
+    parent inv_7_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 8
+object load {
+    name LOAD8;
+    parent Bus208;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD8_player.value*1052.631579;
+    // base_power_C LOAD8_player.value*8052.631579;
+    base_power_C LOAD8_player.value*2;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD8_player;
+    file data/loads/load_profile_8.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_8_sol;
+    parent Bus208;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_8;
+        parent inv_8_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_8_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus208;
+    sense_object Bus208;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_8;
+    parent inv_8_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 9
+object load {
+    name LOAD9;
+    parent Bus225;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD9_player.value*1052.631579;
+    // base_power_A LOAD9_player.value*8052.631579;
+    base_power_A LOAD9_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD9_player;
+    file data/loads/load_profile_9.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_9_sol;
+    parent Bus225;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_9;
+        parent inv_9_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_9_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus225;
+    sense_object Bus225;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_9;
+    parent inv_9_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 10
+object load {
+    name LOAD10;
+    parent Bus248;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD10_player.value*1052.631579;
+    // base_power_B LOAD10_player.value*8052.631579;
+    base_power_B LOAD10_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD10_player;
+    file data/loads/load_profile_10.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_10_sol;
+    parent Bus248;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_10;
+        parent inv_10_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_10_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus248;
+    sense_object Bus248;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_10;
+    parent inv_10_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 11
+object load {
+    name LOAD11;
+    parent Bus249;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD11_player.value*1052.631579;
+    // base_power_B LOAD11_player.value*8052.631579;
+    base_power_B LOAD11_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD11_player;
+    file data/loads/load_profile_11.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_11_sol;
+    parent Bus249;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_11;
+        parent inv_11_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_11_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus249;
+    sense_object Bus249;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_11;
+    parent inv_11_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 12
+object load {
+    name LOAD12;
+    parent Bus264;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD12_player.value*1052.631579;
+    // base_power_C LOAD12_player.value*8052.631579;
+    base_power_C LOAD12_player.value*2;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD12_player;
+    file data/loads/load_profile_12.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_12_sol;
+    parent Bus264;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_12;
+        parent inv_12_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_12_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus264;
+    sense_object Bus264;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_12;
+    parent inv_12_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 13
+object load {
+    name LOAD13;
+    parent Bus276;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD13_player.value*1052.631579;
+    // base_power_B LOAD13_player.value*8052.631579;
+    base_power_B LOAD13_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD13_player;
+    file data/loads/load_profile_13.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_13_sol;
+    parent Bus276;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_13;
+        parent inv_13_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_13_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus276;
+    sense_object Bus276;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_13;
+    parent inv_13_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 14
+object load {
+    name LOAD14;
+    parent Bus289;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD14_player.value*1052.631579;
+    // base_power_A LOAD14_player.value*8052.631579;
+    base_power_A LOAD14_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD14_player;
+    file data/loads/load_profile_14.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_14_sol;
+    parent Bus289;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_14;
+        parent inv_14_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_14_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus289;
+    sense_object Bus289;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_14;
+    parent inv_14_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 15
+object load {
+    name LOAD15;
+    parent Bus314;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD15_player.value*1052.631579;
+    // base_power_B LOAD15_player.value*8052.631579;
+    base_power_B LOAD15_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD15_player;
+    file data/loads/load_profile_15.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_15_sol;
+    parent Bus314;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_15;
+        parent inv_15_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_15_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus314;
+    sense_object Bus314;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_15;
+    parent inv_15_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 16
+object load {
+    name LOAD16;
+    parent Bus320;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD16_player.value*1052.631579;
+    // base_power_C LOAD16_player.value*8052.631579;
+    base_power_C LOAD16_player.value*2;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD16_player;
+    file data/loads/load_profile_16.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_16_sol;
+    parent Bus320;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_16;
+        parent inv_16_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_16_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus320;
+    sense_object Bus320;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_16;
+    parent inv_16_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 17
+object load {
+    name LOAD17;
+    parent Bus327;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD17_player.value*1052.631579;
+    // base_power_C LOAD17_player.value*8052.631579;
+    base_power_C LOAD17_player.value*2;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD17_player;
+    file data/loads/load_profile_17.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_17_sol;
+    parent Bus327;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_17;
+        parent inv_17_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_17_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus327;
+    sense_object Bus327;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_17;
+    parent inv_17_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 18
+object load {
+    name LOAD18;
+    parent Bus337;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD18_player.value*1052.631579;
+    // base_power_C LOAD18_player.value*8052.631579;
+    base_power_C LOAD18_player.value*2;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD18_player;
+    file data/loads/load_profile_18.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_18_sol;
+    parent Bus337;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_18;
+        parent inv_18_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_18_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus337;
+    sense_object Bus337;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_18;
+    parent inv_18_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 19
+object load {
+    name LOAD19;
+    parent Bus342;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD19_player.value*1052.631579;
+    // base_power_C LOAD19_player.value*8052.631579;
+    base_power_C LOAD19_player.value*2;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD19_player;
+    file data/loads/load_profile_19.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_19_sol;
+    parent Bus342;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_19;
+        parent inv_19_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_19_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus342;
+    sense_object Bus342;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_19;
+    parent inv_19_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 20
+object load {
+    name LOAD20;
+    parent Bus349;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD20_player.value*1052.631579;
+    // base_power_A LOAD20_player.value*8052.631579;
+    base_power_A LOAD20_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD20_player;
+    file data/loads/load_profile_20.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_20_sol;
+    parent Bus349;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_20;
+        parent inv_20_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_20_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus349;
+    sense_object Bus349;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_20;
+    parent inv_20_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 21
+object load {
+    name LOAD21;
+    parent Bus387;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD21_player.value*1052.631579;
+    // base_power_A LOAD21_player.value*8052.631579;
+    base_power_A LOAD21_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD21_player;
+    file data/loads/load_profile_21.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_21_sol;
+    parent Bus387;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_21;
+        parent inv_21_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_21_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus387;
+    sense_object Bus387;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_21;
+    parent inv_21_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 22
+object load {
+    name LOAD22;
+    parent Bus388;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD22_player.value*1052.631579;
+    // base_power_A LOAD22_player.value*8052.631579;
+    base_power_A LOAD22_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD22_player;
+    file data/loads/load_profile_22.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_22_sol;
+    parent Bus388;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_22;
+        parent inv_22_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_22_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus388;
+    sense_object Bus388;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_22;
+    parent inv_22_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 23
+object load {
+    name LOAD23;
+    parent Bus406;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD23_player.value*1052.631579;
+    // base_power_B LOAD23_player.value*8052.631579;
+    base_power_B LOAD23_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD23_player;
+    file data/loads/load_profile_23.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_23_sol;
+    parent Bus406;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_23;
+        parent inv_23_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_23_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus406;
+    sense_object Bus406;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_23;
+    parent inv_23_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 24
+object load {
+    name LOAD24;
+    parent Bus458;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD24_player.value*1052.631579;
+    // base_power_C LOAD24_player.value*8052.631579;
+    base_power_C LOAD24_player.value*2;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD24_player;
+    file data/loads/load_profile_24.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_24_sol;
+    parent Bus458;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_24;
+        parent inv_24_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_24_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus458;
+    sense_object Bus458;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_24;
+    parent inv_24_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 25
+object load {
+    name LOAD25;
+    parent Bus502;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD25_player.value*1052.631579;
+    // base_power_A LOAD25_player.value*8052.631579;
+    base_power_A LOAD25_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD25_player;
+    file data/loads/load_profile_25.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_25_sol;
+    parent Bus502;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_25;
+        parent inv_25_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_25_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus502;
+    sense_object Bus502;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_25;
+    parent inv_25_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 26
+object load {
+    name LOAD26;
+    parent Bus522;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD26_player.value*1052.631579;
+    // base_power_B LOAD26_player.value*8052.631579;
+    base_power_B LOAD26_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD26_player;
+    file data/loads/load_profile_26.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_26_sol;
+    parent Bus522;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_26;
+        parent inv_26_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_26_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus522;
+    sense_object Bus522;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_26;
+    parent inv_26_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 27
+object load {
+    name LOAD27;
+    parent Bus539;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD27_player.value*1052.631579;
+    // base_power_C LOAD27_player.value*8052.631579;
+    base_power_C LOAD27_player.value*2;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD27_player;
+    file data/loads/load_profile_27.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_27_sol;
+    parent Bus539;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_27;
+        parent inv_27_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_27_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus539;
+    sense_object Bus539;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_27;
+    parent inv_27_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 28
+object load {
+    name LOAD28;
+    parent Bus556;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD28_player.value*1052.631579;
+    // base_power_C LOAD28_player.value*8052.631579;
+    base_power_C LOAD28_player.value*2;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD28_player;
+    file data/loads/load_profile_28.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_28_sol;
+    parent Bus556;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_28;
+        parent inv_28_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_28_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus556;
+    sense_object Bus556;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_28;
+    parent inv_28_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 29
+object load {
+    name LOAD29;
+    parent Bus562;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD29_player.value*1052.631579;
+    // base_power_A LOAD29_player.value*8052.631579;
+    base_power_A LOAD29_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD29_player;
+    file data/loads/load_profile_29.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_29_sol;
+    parent Bus562;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_29;
+        parent inv_29_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_29_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus562;
+    sense_object Bus562;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_29;
+    parent inv_29_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 30
+object load {
+    name LOAD30;
+    parent Bus563;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD30_player.value*1052.631579;
+    // base_power_A LOAD30_player.value*8052.631579;
+    base_power_A LOAD30_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD30_player;
+    file data/loads/load_profile_30.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_30_sol;
+    parent Bus563;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_30;
+        parent inv_30_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_30_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus563;
+    sense_object Bus563;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_30;
+    parent inv_30_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 31
+object load {
+    name LOAD31;
+    parent Bus611;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD31_player.value*1052.631579;
+    // base_power_A LOAD31_player.value*8052.631579;
+    base_power_A LOAD31_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD31_player;
+    file data/loads/load_profile_31.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_31_sol;
+    parent Bus611;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_31;
+        parent inv_31_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_31_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus611;
+    sense_object Bus611;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_31;
+    parent inv_31_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 32
+object load {
+    name LOAD32;
+    parent Bus614;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD32_player.value*1052.631579;
+    // base_power_C LOAD32_player.value*8052.631579;
+    base_power_C LOAD32_player.value*2;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD32_player;
+    file data/loads/load_profile_32.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_32_sol;
+    parent Bus614;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_32;
+        parent inv_32_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_32_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus614;
+    sense_object Bus614;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_32;
+    parent inv_32_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 33
+object load {
+    name LOAD33;
+    parent Bus619;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD33_player.value*1052.631579;
+    // base_power_C LOAD33_player.value*8052.631579;
+    base_power_C LOAD33_player.value*2;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD33_player;
+    file data/loads/load_profile_33.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_33_sol;
+    parent Bus619;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_33;
+        parent inv_33_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_33_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus619;
+    sense_object Bus619;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_33;
+    parent inv_33_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 34
+object load {
+    name LOAD34;
+    parent Bus629;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD34_player.value*1052.631579;
+    // base_power_A LOAD34_player.value*8052.631579;
+    base_power_A LOAD34_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD34_player;
+    file data/loads/load_profile_34.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_34_sol;
+    parent Bus629;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_34;
+        parent inv_34_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_34_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus629;
+    sense_object Bus629;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_34;
+    parent inv_34_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 35
+object load {
+    name LOAD35;
+    parent Bus639;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD35_player.value*1052.631579;
+    // base_power_B LOAD35_player.value*8052.631579;
+    base_power_B LOAD35_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD35_player;
+    file data/loads/load_profile_35.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_35_sol;
+    parent Bus639;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_35;
+        parent inv_35_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_35_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus639;
+    sense_object Bus639;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_35;
+    parent inv_35_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 36
+object load {
+    name LOAD36;
+    parent Bus676;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD36_player.value*1052.631579;
+    // base_power_B LOAD36_player.value*8052.631579;
+    base_power_B LOAD36_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD36_player;
+    file data/loads/load_profile_36.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_36_sol;
+    parent Bus676;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_36;
+        parent inv_36_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_36_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus676;
+    sense_object Bus676;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_36;
+    parent inv_36_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 37
+object load {
+    name LOAD37;
+    parent Bus682;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD37_player.value*1052.631579;
+    // base_power_B LOAD37_player.value*8052.631579;
+    base_power_B LOAD37_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD37_player;
+    file data/loads/load_profile_37.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_37_sol;
+    parent Bus682;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_37;
+        parent inv_37_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_37_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus682;
+    sense_object Bus682;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_37;
+    parent inv_37_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 38
+object load {
+    name LOAD38;
+    parent Bus688;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD38_player.value*1052.631579;
+    // base_power_B LOAD38_player.value*8052.631579;
+    base_power_B LOAD38_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD38_player;
+    file data/loads/load_profile_38.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_38_sol;
+    parent Bus688;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_38;
+        parent inv_38_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_38_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus688;
+    sense_object Bus688;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_38;
+    parent inv_38_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 39
+object load {
+    name LOAD39;
+    parent Bus701;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD39_player.value*1052.631579;
+    // base_power_C LOAD39_player.value*8052.631579;
+    base_power_C LOAD39_player.value*2;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD39_player;
+    file data/loads/load_profile_39.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_39_sol;
+    parent Bus701;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_39;
+        parent inv_39_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_39_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus701;
+    sense_object Bus701;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_39;
+    parent inv_39_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 40
+object load {
+    name LOAD40;
+    parent Bus702;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD40_player.value*1052.631579;
+    // base_power_B LOAD40_player.value*8052.631579;
+    base_power_B LOAD40_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD40_player;
+    file data/loads/load_profile_40.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_40_sol;
+    parent Bus702;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_40;
+        parent inv_40_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_40_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus702;
+    sense_object Bus702;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_40;
+    parent inv_40_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 41
+object load {
+    name LOAD41;
+    parent Bus755;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD41_player.value*1052.631579;
+    // base_power_B LOAD41_player.value*8052.631579;
+    base_power_B LOAD41_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD41_player;
+    file data/loads/load_profile_41.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_41_sol;
+    parent Bus755;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_41;
+        parent inv_41_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_41_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus755;
+    sense_object Bus755;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_41;
+    parent inv_41_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 42
+object load {
+    name LOAD42;
+    parent Bus778;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD42_player.value*1052.631579;
+    // base_power_C LOAD42_player.value*8052.631579;
+    base_power_C LOAD42_player.value*2;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD42_player;
+    file data/loads/load_profile_42.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_42_sol;
+    parent Bus778;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_42;
+        parent inv_42_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_42_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus778;
+    sense_object Bus778;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_42;
+    parent inv_42_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 43
+object load {
+    name LOAD43;
+    parent Bus780;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD43_player.value*1052.631579;
+    // base_power_C LOAD43_player.value*8052.631579;
+    base_power_C LOAD43_player.value*2;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD43_player;
+    file data/loads/load_profile_43.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_43_sol;
+    parent Bus780;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_43;
+        parent inv_43_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_43_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus780;
+    sense_object Bus780;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_43;
+    parent inv_43_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 44
+object load {
+    name LOAD44;
+    parent Bus785;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD44_player.value*1052.631579;
+    // base_power_B LOAD44_player.value*8052.631579;
+    base_power_B LOAD44_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD44_player;
+    file data/loads/load_profile_44.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_44_sol;
+    parent Bus785;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_44;
+        parent inv_44_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_44_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus785;
+    sense_object Bus785;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_44;
+    parent inv_44_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 45
+object load {
+    name LOAD45;
+    parent Bus813;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD45_player.value*1052.631579;
+    // base_power_B LOAD45_player.value*8052.631579;
+    base_power_B LOAD45_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD45_player;
+    file data/loads/load_profile_45.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_45_sol;
+    parent Bus813;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_45;
+        parent inv_45_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_45_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus813;
+    sense_object Bus813;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_45;
+    parent inv_45_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 46
+object load {
+    name LOAD46;
+    parent Bus817;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD46_player.value*1052.631579;
+    // base_power_A LOAD46_player.value*8052.631579;
+    base_power_A LOAD46_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD46_player;
+    file data/loads/load_profile_46.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_46_sol;
+    parent Bus817;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_46;
+        parent inv_46_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_46_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus817;
+    sense_object Bus817;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_46;
+    parent inv_46_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 47
+object load {
+    name LOAD47;
+    parent Bus835;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD47_player.value*1052.631579;
+    // base_power_C LOAD47_player.value*8052.631579;
+    base_power_C LOAD47_player.value*2;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD47_player;
+    file data/loads/load_profile_47.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_47_sol;
+    parent Bus835;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_47;
+        parent inv_47_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_47_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus835;
+    sense_object Bus835;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_47;
+    parent inv_47_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 48
+object load {
+    name LOAD48;
+    parent Bus860;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD48_player.value*1052.631579;
+    // base_power_A LOAD48_player.value*8052.631579;
+    base_power_A LOAD48_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD48_player;
+    file data/loads/load_profile_48.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_48_sol;
+    parent Bus860;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_48;
+        parent inv_48_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_48_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus860;
+    sense_object Bus860;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_48;
+    parent inv_48_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 49
+object load {
+    name LOAD49;
+    parent Bus861;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD49_player.value*1052.631579;
+    // base_power_A LOAD49_player.value*8052.631579;
+    base_power_A LOAD49_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD49_player;
+    file data/loads/load_profile_49.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_49_sol;
+    parent Bus861;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_49;
+        parent inv_49_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_49_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus861;
+    sense_object Bus861;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_49;
+    parent inv_49_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 50
+object load {
+    name LOAD50;
+    parent Bus886;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD50_player.value*1052.631579;
+    // base_power_B LOAD50_player.value*8052.631579;
+    base_power_B LOAD50_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD50_player;
+    file data/loads/load_profile_50.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_50_sol;
+    parent Bus886;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_50;
+        parent inv_50_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_50_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus886;
+    sense_object Bus886;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_50;
+    parent inv_50_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 51
+object load {
+    name LOAD51;
+    parent Bus896;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD51_player.value*1052.631579;
+    // base_power_A LOAD51_player.value*8052.631579;
+    base_power_A LOAD51_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD51_player;
+    file data/loads/load_profile_51.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_51_sol;
+    parent Bus896;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_51;
+        parent inv_51_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_51_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus896;
+    sense_object Bus896;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_51;
+    parent inv_51_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 52
+object load {
+    name LOAD52;
+    parent Bus898;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD52_player.value*1052.631579;
+    // base_power_A LOAD52_player.value*8052.631579;
+    base_power_A LOAD52_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD52_player;
+    file data/loads/load_profile_52.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_52_sol;
+    parent Bus898;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_52;
+        parent inv_52_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_52_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus898;
+    sense_object Bus898;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_52;
+    parent inv_52_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 53
+object load {
+    name LOAD53;
+    parent Bus899;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD53_player.value*1052.631579;
+    // base_power_B LOAD53_player.value*8052.631579;
+    base_power_B LOAD53_player.value*2;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD53_player;
+    file data/loads/load_profile_53.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_53_sol;
+    parent Bus899;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_53;
+        parent inv_53_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_53_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus899;
+    sense_object Bus899;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_53;
+    parent inv_53_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 54
+object load {
+    name LOAD54;
+    parent Bus900;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD54_player.value*1052.631579;
+    // base_power_A LOAD54_player.value*8052.631579;
+    base_power_A LOAD54_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD54_player;
+    file data/loads/load_profile_54.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_54_sol;
+    parent Bus900;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_54;
+        parent inv_54_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_54_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus900;
+    sense_object Bus900;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_54;
+    parent inv_54_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    
+
+// Load 55
+object load {
+    name LOAD55;
+    parent Bus906;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD55_player.value*1052.631579;
+    // base_power_A LOAD55_player.value*8052.631579;
+    base_power_A LOAD55_player.value*2;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD55_player;
+    file data/loads/load_profile_55.player;
+}
+
+// Distributed Generation
+object inverter {
+    name inv_55_sol;
+    parent Bus906;
+    generator_mode CONSTANT_PF;
+    generator_status ONLINE;
+    inverter_type PWM;
+    power_factor 1.0;
+    inverter_efficiency 0.96;
+    rated_power 10 kVA;
+    //flags DELTAMODE;
+    object solar {
+        name solar_55;
+        parent inv_55_sol;
+        generator_mode SUPPLY_DRIVEN;
+        generator_status ONLINE;
+        panel_type SINGLE_CRYSTAL_SILICON;
+        area 100;
+        tilt_angle 47.0;
+	efficiency 0.135;
+	orientation_azimuth 180; //equator-facing (South)
+	orientation FIXED_AXIS;
+	SOLAR_TILT_MODEL SOLPOS;
+	SOLAR_POWER_MODEL FLATPLATE;
+        //flags DELTAMODE;
+    };
+}
+
+object inverter {
+    name inv_55_batt;
+    generator_status ONLINE;
+    inverter_type FOUR_QUADRANT;
+    four_quadrant_control_mode LOAD_FOLLOWING;
+    parent Bus906;
+    sense_object Bus906;
+    rated_power 3000.0;		//Per phase rating
+    inverter_efficiency .95;
+    charge_on_threshold 1.5 kW;
+    charge_off_threshold 1.7 kW;
+    discharge_off_threshold 2 kW;
+    discharge_on_threshold 3 kW;
+    max_discharge_rate 3 kW;
+    max_charge_rate 3 kW;
+    charge_lockout_time 1;
+    discharge_lockout_time 1;
+    //flags DELTAMODE;
+
+    // rated_power 15 kW;        //Per phase rating
+    // inverter_efficiency .95;
+    // charge_on_threshold 7 kW;
+    // charge_off_threshold 9 kW;
+    // discharge_off_threshold 9.1 kW;
+    // discharge_on_threshold 9.5 kW;
+    // max_discharge_rate 4 kW;
+    // max_charge_rate 4 kW;
+    // charge_lockout_time 1;
+    // discharge_lockout_time 1;
+}
+object battery {
+    name batt_55;
+    parent inv_55_batt;
+    use_internal_battery_model TRUE;
+    battery_type LI_ION;
+    rated_power 3 kW;
+    nominal_voltage 240;
+    battery_capacity 50 kWh;
+    round_trip_efficiency 0.81;
+    state_of_charge 0.5;
+    generator_mode SUPPLY_DRIVEN;
+    //flags DELTAMODE;
+}
+    

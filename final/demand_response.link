@@ -1,0 +1,30 @@
+# Specify the target
+target matlab
+
+# Window show/keep/hide
+window hide
+
+# Output buffer
+output 65536
+
+# Synchronize the clock
+global clock
+
+# Matlab command on init
+on_init ans=GLD_OK;
+
+# Matlab command on snc / co-simulation
+on_sync [quantity_A, quantity_B, quantity_C] = demand_response(current_clearing_price, demand_A, demand_B, demand_C); ans=TS_NEVER; 
+
+# Matlab command on term (after co-simulation)
+on_term ans=GLD_OK;
+
+# Variables to import from matlab to gridlabd and to export from gridlabd to Matlab workspace (by name)
+export Market_1.current_market.clearing_price current_clearing_price
+export LOAD4_player.value demand_A
+export LOAD4_player.value demand_B
+export LOAD4_player.value demand_C
+
+import House22.base_power_A quantity_A
+import House22.base_power_B quantity_B
+import House22.base_power_C quantity_C

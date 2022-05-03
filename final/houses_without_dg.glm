@@ -1,0 +1,1045 @@
+
+// Load 1
+object load {
+    name LOAD1;
+    parent Bus34;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD1_player.value*1052.631579;
+    base_power_A LOAD1_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD1_player;
+    file data/loads/load_profile_1.player;
+}
+
+    
+
+// Load 2
+object load {
+    name LOAD2;
+    parent Bus47;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD2_player.value*1052.631579;
+    base_power_B LOAD2_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD2_player;
+    file data/loads/load_profile_2.player;
+}
+
+    
+
+// Load 3
+object load {
+    name LOAD3;
+    parent Bus70;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD3_player.value*1052.631579;
+    base_power_A LOAD3_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD3_player;
+    file data/loads/load_profile_3.player;
+}
+
+    
+
+// Load 4
+object load {
+    name LOAD4;
+    parent Bus73;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD4_player.value*1052.631579;
+    base_power_A LOAD4_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD4_player;
+    file data/loads/load_profile_4.player;
+}
+
+    
+
+// Load 5
+object load {
+    name LOAD5;
+    parent Bus74;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD5_player.value*1052.631579;
+    base_power_A LOAD5_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD5_player;
+    file data/loads/load_profile_5.player;
+}
+
+    
+
+// Load 6
+object load {
+    name LOAD6;
+    parent Bus83;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD6_player.value*1052.631579;
+    base_power_B LOAD6_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD6_player;
+    file data/loads/load_profile_6.player;
+}
+
+    
+
+// Load 7
+object load {
+    name LOAD7;
+    parent Bus178;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD7_player.value*1052.631579;
+    base_power_B LOAD7_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD7_player;
+    file data/loads/load_profile_7.player;
+}
+
+    
+
+// Load 8
+object load {
+    name LOAD8;
+    parent Bus208;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD8_player.value*1052.631579;
+    base_power_C LOAD8_player.value*8052.631579;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD8_player;
+    file data/loads/load_profile_8.player;
+}
+
+    
+
+// Load 9
+object load {
+    name LOAD9;
+    parent Bus225;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD9_player.value*1052.631579;
+    base_power_A LOAD9_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD9_player;
+    file data/loads/load_profile_9.player;
+}
+
+    
+
+// Load 10
+object load {
+    name LOAD10;
+    parent Bus248;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD10_player.value*1052.631579;
+    base_power_B LOAD10_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD10_player;
+    file data/loads/load_profile_10.player;
+}
+
+    
+
+// Load 11
+object load {
+    name LOAD11;
+    parent Bus249;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD11_player.value*1052.631579;
+    base_power_B LOAD11_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD11_player;
+    file data/loads/load_profile_11.player;
+}
+
+    
+
+// Load 12
+object load {
+    name LOAD12;
+    parent Bus264;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD12_player.value*1052.631579;
+    base_power_C LOAD12_player.value*8052.631579;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD12_player;
+    file data/loads/load_profile_12.player;
+}
+
+    
+
+// Load 13
+object load {
+    name LOAD13;
+    parent Bus276;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD13_player.value*1052.631579;
+    base_power_B LOAD13_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD13_player;
+    file data/loads/load_profile_13.player;
+}
+
+    
+
+// Load 14
+object load {
+    name LOAD14;
+    parent Bus289;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD14_player.value*1052.631579;
+    base_power_A LOAD14_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD14_player;
+    file data/loads/load_profile_14.player;
+}
+
+    
+
+// Load 15
+object load {
+    name LOAD15;
+    parent Bus314;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD15_player.value*1052.631579;
+    base_power_B LOAD15_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD15_player;
+    file data/loads/load_profile_15.player;
+}
+
+    
+
+// Load 16
+object load {
+    name LOAD16;
+    parent Bus320;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD16_player.value*1052.631579;
+    base_power_C LOAD16_player.value*8052.631579;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD16_player;
+    file data/loads/load_profile_16.player;
+}
+
+    
+
+// Load 17
+object load {
+    name LOAD17;
+    parent Bus327;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD17_player.value*1052.631579;
+    base_power_C LOAD17_player.value*8052.631579;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD17_player;
+    file data/loads/load_profile_17.player;
+}
+
+    
+
+// Load 18
+object load {
+    name LOAD18;
+    parent Bus337;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD18_player.value*1052.631579;
+    base_power_C LOAD18_player.value*8052.631579;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD18_player;
+    file data/loads/load_profile_18.player;
+}
+
+    
+
+// Load 19
+object load {
+    name LOAD19;
+    parent Bus342;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD19_player.value*1052.631579;
+    base_power_C LOAD19_player.value*8052.631579;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD19_player;
+    file data/loads/load_profile_19.player;
+}
+
+    
+
+// Load 20
+object load {
+    name LOAD20;
+    parent Bus349;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD20_player.value*1052.631579;
+    base_power_A LOAD20_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD20_player;
+    file data/loads/load_profile_20.player;
+}
+
+    
+
+// Load 21
+object load {
+    name LOAD21;
+    parent Bus387;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD21_player.value*1052.631579;
+    base_power_A LOAD21_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD21_player;
+    file data/loads/load_profile_21.player;
+}
+
+    
+
+// Load 22
+object load {
+    name LOAD22;
+    parent Bus388;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD22_player.value*1052.631579;
+    base_power_A LOAD22_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD22_player;
+    file data/loads/load_profile_22.player;
+}
+
+    
+
+// Load 23
+object load {
+    name LOAD23;
+    parent Bus406;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD23_player.value*1052.631579;
+    base_power_B LOAD23_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD23_player;
+    file data/loads/load_profile_23.player;
+}
+
+    
+
+// Load 24
+object load {
+    name LOAD24;
+    parent Bus458;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD24_player.value*1052.631579;
+    base_power_C LOAD24_player.value*8052.631579;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD24_player;
+    file data/loads/load_profile_24.player;
+}
+
+    
+
+// Load 25
+object load {
+    name LOAD25;
+    parent Bus502;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD25_player.value*1052.631579;
+    base_power_A LOAD25_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD25_player;
+    file data/loads/load_profile_25.player;
+}
+
+    
+
+// Load 26
+object load {
+    name LOAD26;
+    parent Bus522;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD26_player.value*1052.631579;
+    base_power_B LOAD26_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD26_player;
+    file data/loads/load_profile_26.player;
+}
+
+    
+
+// Load 27
+object load {
+    name LOAD27;
+    parent Bus539;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD27_player.value*1052.631579;
+    base_power_C LOAD27_player.value*8052.631579;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD27_player;
+    file data/loads/load_profile_27.player;
+}
+
+    
+
+// Load 28
+object load {
+    name LOAD28;
+    parent Bus556;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD28_player.value*1052.631579;
+    base_power_C LOAD28_player.value*8052.631579;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD28_player;
+    file data/loads/load_profile_28.player;
+}
+
+    
+
+// Load 29
+object load {
+    name LOAD29;
+    parent Bus562;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD29_player.value*1052.631579;
+    base_power_A LOAD29_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD29_player;
+    file data/loads/load_profile_29.player;
+}
+
+    
+
+// Load 30
+object load {
+    name LOAD30;
+    parent Bus563;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD30_player.value*1052.631579;
+    base_power_A LOAD30_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD30_player;
+    file data/loads/load_profile_30.player;
+}
+
+    
+
+// Load 31
+object load {
+    name LOAD31;
+    parent Bus611;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD31_player.value*1052.631579;
+    base_power_A LOAD31_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD31_player;
+    file data/loads/load_profile_31.player;
+}
+
+    
+
+// Load 32
+object load {
+    name LOAD32;
+    parent Bus614;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD32_player.value*1052.631579;
+    base_power_C LOAD32_player.value*8052.631579;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD32_player;
+    file data/loads/load_profile_32.player;
+}
+
+    
+
+// Load 33
+object load {
+    name LOAD33;
+    parent Bus619;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD33_player.value*1052.631579;
+    base_power_C LOAD33_player.value*8052.631579;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD33_player;
+    file data/loads/load_profile_33.player;
+}
+
+    
+
+// Load 34
+object load {
+    name LOAD34;
+    parent Bus629;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD34_player.value*1052.631579;
+    base_power_A LOAD34_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD34_player;
+    file data/loads/load_profile_34.player;
+}
+
+    
+
+// Load 35
+object load {
+    name LOAD35;
+    parent Bus639;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD35_player.value*1052.631579;
+    base_power_B LOAD35_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD35_player;
+    file data/loads/load_profile_35.player;
+}
+
+    
+
+// Load 36
+object load {
+    name LOAD36;
+    parent Bus676;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD36_player.value*1052.631579;
+    base_power_B LOAD36_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD36_player;
+    file data/loads/load_profile_36.player;
+}
+
+    
+
+// Load 37
+object load {
+    name LOAD37;
+    parent Bus682;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD37_player.value*1052.631579;
+    base_power_B LOAD37_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD37_player;
+    file data/loads/load_profile_37.player;
+}
+
+    
+
+// Load 38
+object load {
+    name LOAD38;
+    parent Bus688;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD38_player.value*1052.631579;
+    base_power_B LOAD38_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD38_player;
+    file data/loads/load_profile_38.player;
+}
+
+    
+
+// Load 39
+object load {
+    name LOAD39;
+    parent Bus701;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD39_player.value*1052.631579;
+    base_power_C LOAD39_player.value*8052.631579;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD39_player;
+    file data/loads/load_profile_39.player;
+}
+
+    
+
+// Load 40
+object load {
+    name LOAD40;
+    parent Bus702;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD40_player.value*1052.631579;
+    base_power_B LOAD40_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD40_player;
+    file data/loads/load_profile_40.player;
+}
+
+    
+
+// Load 41
+object load {
+    name LOAD41;
+    parent Bus755;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD41_player.value*1052.631579;
+    base_power_B LOAD41_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD41_player;
+    file data/loads/load_profile_41.player;
+}
+
+    
+
+// Load 42
+object load {
+    name LOAD42;
+    parent Bus778;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD42_player.value*1052.631579;
+    base_power_C LOAD42_player.value*8052.631579;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD42_player;
+    file data/loads/load_profile_42.player;
+}
+
+    
+
+// Load 43
+object load {
+    name LOAD43;
+    parent Bus780;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD43_player.value*1052.631579;
+    base_power_C LOAD43_player.value*8052.631579;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD43_player;
+    file data/loads/load_profile_43.player;
+}
+
+    
+
+// Load 44
+object load {
+    name LOAD44;
+    parent Bus785;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD44_player.value*1052.631579;
+    base_power_B LOAD44_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD44_player;
+    file data/loads/load_profile_44.player;
+}
+
+    
+
+// Load 45
+object load {
+    name LOAD45;
+    parent Bus813;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD45_player.value*1052.631579;
+    base_power_B LOAD45_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD45_player;
+    file data/loads/load_profile_45.player;
+}
+
+    
+
+// Load 46
+object load {
+    name LOAD46;
+    parent Bus817;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD46_player.value*1052.631579;
+    base_power_A LOAD46_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD46_player;
+    file data/loads/load_profile_46.player;
+}
+
+    
+
+// Load 47
+object load {
+    name LOAD47;
+    parent Bus835;
+    phases C;
+    nominal_voltage 240.00;
+    // base_power_C LOAD47_player.value*1052.631579;
+    base_power_C LOAD47_player.value*8052.631579;
+    power_fraction_C 1;
+    power_pf_C 0.8;
+}
+
+object player {
+    name LOAD47_player;
+    file data/loads/load_profile_47.player;
+}
+
+    
+
+// Load 48
+object load {
+    name LOAD48;
+    parent Bus860;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD48_player.value*1052.631579;
+    base_power_A LOAD48_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD48_player;
+    file data/loads/load_profile_48.player;
+}
+
+    
+
+// Load 49
+object load {
+    name LOAD49;
+    parent Bus861;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD49_player.value*1052.631579;
+    base_power_A LOAD49_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD49_player;
+    file data/loads/load_profile_49.player;
+}
+
+    
+
+// Load 50
+object load {
+    name LOAD50;
+    parent Bus886;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD50_player.value*1052.631579;
+    base_power_B LOAD50_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD50_player;
+    file data/loads/load_profile_50.player;
+}
+
+    
+
+// Load 51
+object load {
+    name LOAD51;
+    parent Bus896;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD51_player.value*1052.631579;
+    base_power_A LOAD51_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD51_player;
+    file data/loads/load_profile_51.player;
+}
+
+    
+
+// Load 52
+object load {
+    name LOAD52;
+    parent Bus898;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD52_player.value*1052.631579;
+    base_power_A LOAD52_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD52_player;
+    file data/loads/load_profile_52.player;
+}
+
+    
+
+// Load 53
+object load {
+    name LOAD53;
+    parent Bus899;
+    phases B;
+    nominal_voltage 240.00;
+    // base_power_B LOAD53_player.value*1052.631579;
+    base_power_B LOAD53_player.value*8052.631579;
+    power_fraction_B 1;
+    power_pf_B 0.8;
+}
+
+object player {
+    name LOAD53_player;
+    file data/loads/load_profile_53.player;
+}
+
+    
+
+// Load 54
+object load {
+    name LOAD54;
+    parent Bus900;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD54_player.value*1052.631579;
+    base_power_A LOAD54_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD54_player;
+    file data/loads/load_profile_54.player;
+}
+
+    
+
+// Load 55
+object load {
+    name LOAD55;
+    parent Bus906;
+    phases A;
+    nominal_voltage 240.00;
+    // base_power_A LOAD55_player.value*1052.631579;
+    base_power_A LOAD55_player.value*8052.631579;
+    power_fraction_A 1;
+    power_pf_A 0.8;
+}
+
+object player {
+    name LOAD55_player;
+    file data/loads/load_profile_55.player;
+}
+
+    
