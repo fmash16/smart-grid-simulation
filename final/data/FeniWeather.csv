@@ -1,6 +1,7 @@
 #Feni weather file
 $city_name=Feni
 $timezone=GMT
+$timezone_offset=+6
 solar_diff,solar_dir,solar_global,temperature,wind_speed
 04:19:21:34:00,0,0,0,32.8,2.12938
 04:19:21:35:00,0,0,0,32.8,2.2945
