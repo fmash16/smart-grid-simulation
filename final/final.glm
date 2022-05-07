@@ -61,7 +61,7 @@ object multi_recorder {
     name LOAD1_data;
     file output/LOAD1_data.csv;
     interval 60;
-    property LOAD1:base_power_A, Bus34:measured_power.real, Bus34:measured_power.imag, inv_1_sol:VA_Out.real, inv_1_batt:VA_Out.real, Bus34:measured_voltage_A.real, Bus34:measured_voltage_A.imag, Bus34:measured_current_A.real, Bus34:measured_current_A.imag;
+    property LOAD1:base_power_A, Bus34:measured_power.real, Bus34:measured_power.imag, inv_1_sol:VA_Out.real, inv_1_batt:VA_Out.real, Bus34:measured_voltage_A.real, Bus34:measured_voltage_A.imag, Bus34:measured_current_A.real, Bus34:measured_current_A.imag, batt_1:state_of_charge;
 }
     
 
@@ -70,7 +70,7 @@ object multi_recorder {
     name LOAD2_data;
     file output/LOAD2_data.csv;
     interval 60;
-    property LOAD2:base_power_B, Bus47:measured_power.real, Bus47:measured_power.imag, inv_2_sol:VA_Out.real, inv_2_batt:VA_Out.real, Bus47:measured_voltage_B.real, Bus47:measured_voltage_B.imag, Bus47:measured_current_B.real, Bus47:measured_current_B.imag;
+    property LOAD2:base_power_B, Bus47:measured_power.real, Bus47:measured_power.imag, inv_2_sol:VA_Out.real, inv_2_batt:VA_Out.real, Bus47:measured_voltage_B.real, Bus47:measured_voltage_B.imag, Bus47:measured_current_B.real, Bus47:measured_current_B.imag, batt_2:state_of_charge;
 }
     
 
@@ -79,7 +79,7 @@ object multi_recorder {
     name LOAD3_data;
     file output/LOAD3_data.csv;
     interval 60;
-    property LOAD3:base_power_A, Bus70:measured_power.real, Bus70:measured_power.imag, inv_3_sol:VA_Out.real, inv_3_batt:VA_Out.real, Bus70:measured_voltage_A.real, Bus70:measured_voltage_A.imag, Bus70:measured_current_A.real, Bus70:measured_current_A.imag;
+    property LOAD3:base_power_A, Bus70:measured_power.real, Bus70:measured_power.imag, inv_3_sol:VA_Out.real, inv_3_batt:VA_Out.real, Bus70:measured_voltage_A.real, Bus70:measured_voltage_A.imag, Bus70:measured_current_A.real, Bus70:measured_current_A.imag, batt_3:state_of_charge;
 }
     
 
@@ -88,7 +88,7 @@ object multi_recorder {
     name LOAD4_data;
     file output/LOAD4_data.csv;
     interval 60;
-    property LOAD4:base_power_A, Bus73:measured_power.real, Bus73:measured_power.imag, inv_4_sol:VA_Out.real, inv_4_batt:VA_Out.real, Bus73:measured_voltage_A.real, Bus73:measured_voltage_A.imag, Bus73:measured_current_A.real, Bus73:measured_current_A.imag;
+    property LOAD4:base_power_A, Bus73:measured_power.real, Bus73:measured_power.imag, inv_4_sol:VA_Out.real, inv_4_batt:VA_Out.real, Bus73:measured_voltage_A.real, Bus73:measured_voltage_A.imag, Bus73:measured_current_A.real, Bus73:measured_current_A.imag, batt_4:state_of_charge;
 }
     
 
@@ -97,7 +97,7 @@ object multi_recorder {
     name LOAD5_data;
     file output/LOAD5_data.csv;
     interval 60;
-    property LOAD5:base_power_A, Bus74:measured_power.real, Bus74:measured_power.imag, inv_5_sol:VA_Out.real, inv_5_batt:VA_Out.real, Bus74:measured_voltage_A.real, Bus74:measured_voltage_A.imag, Bus74:measured_current_A.real, Bus74:measured_current_A.imag;
+    property LOAD5:base_power_A, Bus74:measured_power.real, Bus74:measured_power.imag, inv_5_sol:VA_Out.real, inv_5_batt:VA_Out.real, Bus74:measured_voltage_A.real, Bus74:measured_voltage_A.imag, Bus74:measured_current_A.real, Bus74:measured_current_A.imag, batt_5:state_of_charge;
 }
     
 
@@ -106,7 +106,7 @@ object multi_recorder {
     name LOAD6_data;
     file output/LOAD6_data.csv;
     interval 60;
-    property LOAD6:base_power_B, Bus83:measured_power.real, Bus83:measured_power.imag, inv_6_sol:VA_Out.real, inv_6_batt:VA_Out.real, Bus83:measured_voltage_B.real, Bus83:measured_voltage_B.imag, Bus83:measured_current_B.real, Bus83:measured_current_B.imag;
+    property LOAD6:base_power_B, Bus83:measured_power.real, Bus83:measured_power.imag, inv_6_sol:VA_Out.real, inv_6_batt:VA_Out.real, Bus83:measured_voltage_B.real, Bus83:measured_voltage_B.imag, Bus83:measured_current_B.real, Bus83:measured_current_B.imag, batt_6:state_of_charge;
 }
     
 
@@ -115,7 +115,7 @@ object multi_recorder {
     name LOAD7_data;
     file output/LOAD7_data.csv;
     interval 60;
-    property LOAD7:base_power_B, Bus178:measured_power.real, Bus178:measured_power.imag, inv_7_sol:VA_Out.real, inv_7_batt:VA_Out.real, Bus178:measured_voltage_B.real, Bus178:measured_voltage_B.imag, Bus178:measured_current_B.real, Bus178:measured_current_B.imag;
+    property LOAD7:base_power_B, Bus178:measured_power.real, Bus178:measured_power.imag, inv_7_sol:VA_Out.real, inv_7_batt:VA_Out.real, Bus178:measured_voltage_B.real, Bus178:measured_voltage_B.imag, Bus178:measured_current_B.real, Bus178:measured_current_B.imag, batt_7:state_of_charge;
 }
     
 
@@ -124,7 +124,7 @@ object multi_recorder {
     name LOAD8_data;
     file output/LOAD8_data.csv;
     interval 60;
-    property LOAD8:base_power_C, Bus208:measured_power.real, Bus208:measured_power.imag, inv_8_sol:VA_Out.real, inv_8_batt:VA_Out.real, Bus208:measured_voltage_C.real, Bus208:measured_voltage_C.imag, Bus208:measured_current_C.real, Bus208:measured_current_C.imag;
+    property LOAD8:base_power_C, Bus208:measured_power.real, Bus208:measured_power.imag, inv_8_sol:VA_Out.real, inv_8_batt:VA_Out.real, Bus208:measured_voltage_C.real, Bus208:measured_voltage_C.imag, Bus208:measured_current_C.real, Bus208:measured_current_C.imag, batt_8:state_of_charge;
 }
     
 
@@ -133,7 +133,7 @@ object multi_recorder {
     name LOAD9_data;
     file output/LOAD9_data.csv;
     interval 60;
-    property LOAD9:base_power_A, Bus225:measured_power.real, Bus225:measured_power.imag, inv_9_sol:VA_Out.real, inv_9_batt:VA_Out.real, Bus225:measured_voltage_A.real, Bus225:measured_voltage_A.imag, Bus225:measured_current_A.real, Bus225:measured_current_A.imag;
+    property LOAD9:base_power_A, Bus225:measured_power.real, Bus225:measured_power.imag, inv_9_sol:VA_Out.real, inv_9_batt:VA_Out.real, Bus225:measured_voltage_A.real, Bus225:measured_voltage_A.imag, Bus225:measured_current_A.real, Bus225:measured_current_A.imag, batt_9:state_of_charge;
 }
     
 
@@ -142,7 +142,7 @@ object multi_recorder {
     name LOAD10_data;
     file output/LOAD10_data.csv;
     interval 60;
-    property LOAD10:base_power_B, Bus248:measured_power.real, Bus248:measured_power.imag, inv_10_sol:VA_Out.real, inv_10_batt:VA_Out.real, Bus248:measured_voltage_B.real, Bus248:measured_voltage_B.imag, Bus248:measured_current_B.real, Bus248:measured_current_B.imag;
+    property LOAD10:base_power_B, Bus248:measured_power.real, Bus248:measured_power.imag, inv_10_sol:VA_Out.real, inv_10_batt:VA_Out.real, Bus248:measured_voltage_B.real, Bus248:measured_voltage_B.imag, Bus248:measured_current_B.real, Bus248:measured_current_B.imag, batt_10:state_of_charge;
 }
     
 
@@ -151,7 +151,7 @@ object multi_recorder {
     name LOAD11_data;
     file output/LOAD11_data.csv;
     interval 60;
-    property LOAD11:base_power_B, Bus249:measured_power.real, Bus249:measured_power.imag, inv_11_sol:VA_Out.real, inv_11_batt:VA_Out.real, Bus249:measured_voltage_B.real, Bus249:measured_voltage_B.imag, Bus249:measured_current_B.real, Bus249:measured_current_B.imag;
+    property LOAD11:base_power_B, Bus249:measured_power.real, Bus249:measured_power.imag, inv_11_sol:VA_Out.real, inv_11_batt:VA_Out.real, Bus249:measured_voltage_B.real, Bus249:measured_voltage_B.imag, Bus249:measured_current_B.real, Bus249:measured_current_B.imag, batt_11:state_of_charge;
 }
     
 
@@ -160,7 +160,7 @@ object multi_recorder {
     name LOAD12_data;
     file output/LOAD12_data.csv;
     interval 60;
-    property LOAD12:base_power_C, Bus264:measured_power.real, Bus264:measured_power.imag, inv_12_sol:VA_Out.real, inv_12_batt:VA_Out.real, Bus264:measured_voltage_C.real, Bus264:measured_voltage_C.imag, Bus264:measured_current_C.real, Bus264:measured_current_C.imag;
+    property LOAD12:base_power_C, Bus264:measured_power.real, Bus264:measured_power.imag, inv_12_sol:VA_Out.real, inv_12_batt:VA_Out.real, Bus264:measured_voltage_C.real, Bus264:measured_voltage_C.imag, Bus264:measured_current_C.real, Bus264:measured_current_C.imag, batt_12:state_of_charge;
 }
     
 
@@ -169,7 +169,7 @@ object multi_recorder {
     name LOAD13_data;
     file output/LOAD13_data.csv;
     interval 60;
-    property LOAD13:base_power_B, Bus276:measured_power.real, Bus276:measured_power.imag, inv_13_sol:VA_Out.real, inv_13_batt:VA_Out.real, Bus276:measured_voltage_B.real, Bus276:measured_voltage_B.imag, Bus276:measured_current_B.real, Bus276:measured_current_B.imag;
+    property LOAD13:base_power_B, Bus276:measured_power.real, Bus276:measured_power.imag, inv_13_sol:VA_Out.real, inv_13_batt:VA_Out.real, Bus276:measured_voltage_B.real, Bus276:measured_voltage_B.imag, Bus276:measured_current_B.real, Bus276:measured_current_B.imag, batt_13:state_of_charge;
 }
     
 
@@ -178,7 +178,7 @@ object multi_recorder {
     name LOAD14_data;
     file output/LOAD14_data.csv;
     interval 60;
-    property LOAD14:base_power_A, Bus289:measured_power.real, Bus289:measured_power.imag, inv_14_sol:VA_Out.real, inv_14_batt:VA_Out.real, Bus289:measured_voltage_A.real, Bus289:measured_voltage_A.imag, Bus289:measured_current_A.real, Bus289:measured_current_A.imag;
+    property LOAD14:base_power_A, Bus289:measured_power.real, Bus289:measured_power.imag, inv_14_sol:VA_Out.real, inv_14_batt:VA_Out.real, Bus289:measured_voltage_A.real, Bus289:measured_voltage_A.imag, Bus289:measured_current_A.real, Bus289:measured_current_A.imag, batt_14:state_of_charge;
 }
     
 
@@ -187,7 +187,7 @@ object multi_recorder {
     name LOAD15_data;
     file output/LOAD15_data.csv;
     interval 60;
-    property LOAD15:base_power_B, Bus314:measured_power.real, Bus314:measured_power.imag, inv_15_sol:VA_Out.real, inv_15_batt:VA_Out.real, Bus314:measured_voltage_B.real, Bus314:measured_voltage_B.imag, Bus314:measured_current_B.real, Bus314:measured_current_B.imag;
+    property LOAD15:base_power_B, Bus314:measured_power.real, Bus314:measured_power.imag, inv_15_sol:VA_Out.real, inv_15_batt:VA_Out.real, Bus314:measured_voltage_B.real, Bus314:measured_voltage_B.imag, Bus314:measured_current_B.real, Bus314:measured_current_B.imag, batt_15:state_of_charge;
 }
     
 
@@ -196,7 +196,7 @@ object multi_recorder {
     name LOAD16_data;
     file output/LOAD16_data.csv;
     interval 60;
-    property LOAD16:base_power_C, Bus320:measured_power.real, Bus320:measured_power.imag, inv_16_sol:VA_Out.real, inv_16_batt:VA_Out.real, Bus320:measured_voltage_C.real, Bus320:measured_voltage_C.imag, Bus320:measured_current_C.real, Bus320:measured_current_C.imag;
+    property LOAD16:base_power_C, Bus320:measured_power.real, Bus320:measured_power.imag, inv_16_sol:VA_Out.real, inv_16_batt:VA_Out.real, Bus320:measured_voltage_C.real, Bus320:measured_voltage_C.imag, Bus320:measured_current_C.real, Bus320:measured_current_C.imag, batt_16:state_of_charge;
 }
     
 
@@ -205,7 +205,7 @@ object multi_recorder {
     name LOAD17_data;
     file output/LOAD17_data.csv;
     interval 60;
-    property LOAD17:base_power_C, Bus327:measured_power.real, Bus327:measured_power.imag, inv_17_sol:VA_Out.real, inv_17_batt:VA_Out.real, Bus327:measured_voltage_C.real, Bus327:measured_voltage_C.imag, Bus327:measured_current_C.real, Bus327:measured_current_C.imag;
+    property LOAD17:base_power_C, Bus327:measured_power.real, Bus327:measured_power.imag, inv_17_sol:VA_Out.real, inv_17_batt:VA_Out.real, Bus327:measured_voltage_C.real, Bus327:measured_voltage_C.imag, Bus327:measured_current_C.real, Bus327:measured_current_C.imag, batt_17:state_of_charge;
 }
     
 
@@ -214,7 +214,7 @@ object multi_recorder {
     name LOAD18_data;
     file output/LOAD18_data.csv;
     interval 60;
-    property LOAD18:base_power_C, Bus337:measured_power.real, Bus337:measured_power.imag, inv_18_sol:VA_Out.real, inv_18_batt:VA_Out.real, Bus337:measured_voltage_C.real, Bus337:measured_voltage_C.imag, Bus337:measured_current_C.real, Bus337:measured_current_C.imag;
+    property LOAD18:base_power_C, Bus337:measured_power.real, Bus337:measured_power.imag, inv_18_sol:VA_Out.real, inv_18_batt:VA_Out.real, Bus337:measured_voltage_C.real, Bus337:measured_voltage_C.imag, Bus337:measured_current_C.real, Bus337:measured_current_C.imag, batt_18:state_of_charge;
 }
     
 
@@ -223,7 +223,7 @@ object multi_recorder {
     name LOAD19_data;
     file output/LOAD19_data.csv;
     interval 60;
-    property LOAD19:base_power_C, Bus342:measured_power.real, Bus342:measured_power.imag, inv_19_sol:VA_Out.real, inv_19_batt:VA_Out.real, Bus342:measured_voltage_C.real, Bus342:measured_voltage_C.imag, Bus342:measured_current_C.real, Bus342:measured_current_C.imag;
+    property LOAD19:base_power_C, Bus342:measured_power.real, Bus342:measured_power.imag, inv_19_sol:VA_Out.real, inv_19_batt:VA_Out.real, Bus342:measured_voltage_C.real, Bus342:measured_voltage_C.imag, Bus342:measured_current_C.real, Bus342:measured_current_C.imag, batt_19:state_of_charge;
 }
     
 
@@ -232,7 +232,7 @@ object multi_recorder {
     name LOAD20_data;
     file output/LOAD20_data.csv;
     interval 60;
-    property LOAD20:base_power_A, Bus349:measured_power.real, Bus349:measured_power.imag, inv_20_sol:VA_Out.real, inv_20_batt:VA_Out.real, Bus349:measured_voltage_A.real, Bus349:measured_voltage_A.imag, Bus349:measured_current_A.real, Bus349:measured_current_A.imag;
+    property LOAD20:base_power_A, Bus349:measured_power.real, Bus349:measured_power.imag, inv_20_sol:VA_Out.real, inv_20_batt:VA_Out.real, Bus349:measured_voltage_A.real, Bus349:measured_voltage_A.imag, Bus349:measured_current_A.real, Bus349:measured_current_A.imag, batt_20:state_of_charge;
 }
     
 
@@ -241,7 +241,7 @@ object multi_recorder {
     name LOAD21_data;
     file output/LOAD21_data.csv;
     interval 60;
-    property LOAD21:base_power_A, Bus387:measured_power.real, Bus387:measured_power.imag, inv_21_sol:VA_Out.real, inv_21_batt:VA_Out.real, Bus387:measured_voltage_A.real, Bus387:measured_voltage_A.imag, Bus387:measured_current_A.real, Bus387:measured_current_A.imag;
+    property LOAD21:base_power_A, Bus387:measured_power.real, Bus387:measured_power.imag, inv_21_sol:VA_Out.real, inv_21_batt:VA_Out.real, Bus387:measured_voltage_A.real, Bus387:measured_voltage_A.imag, Bus387:measured_current_A.real, Bus387:measured_current_A.imag, batt_21:state_of_charge;
 }
     
 
@@ -250,7 +250,7 @@ object multi_recorder {
     name LOAD22_data;
     file output/LOAD22_data.csv;
     interval 60;
-    property LOAD22:base_power_A, Bus388:measured_power.real, Bus388:measured_power.imag, inv_22_sol:VA_Out.real, inv_22_batt:VA_Out.real, Bus388:measured_voltage_A.real, Bus388:measured_voltage_A.imag, Bus388:measured_current_A.real, Bus388:measured_current_A.imag;
+    property LOAD22:base_power_A, Bus388:measured_power.real, Bus388:measured_power.imag, inv_22_sol:VA_Out.real, inv_22_batt:VA_Out.real, Bus388:measured_voltage_A.real, Bus388:measured_voltage_A.imag, Bus388:measured_current_A.real, Bus388:measured_current_A.imag, batt_22:state_of_charge;
 }
     
 
@@ -259,7 +259,7 @@ object multi_recorder {
     name LOAD23_data;
     file output/LOAD23_data.csv;
     interval 60;
-    property LOAD23:base_power_B, Bus406:measured_power.real, Bus406:measured_power.imag, inv_23_sol:VA_Out.real, inv_23_batt:VA_Out.real, Bus406:measured_voltage_B.real, Bus406:measured_voltage_B.imag, Bus406:measured_current_B.real, Bus406:measured_current_B.imag;
+    property LOAD23:base_power_B, Bus406:measured_power.real, Bus406:measured_power.imag, inv_23_sol:VA_Out.real, inv_23_batt:VA_Out.real, Bus406:measured_voltage_B.real, Bus406:measured_voltage_B.imag, Bus406:measured_current_B.real, Bus406:measured_current_B.imag, batt_23:state_of_charge;
 }
     
 
@@ -268,7 +268,7 @@ object multi_recorder {
     name LOAD24_data;
     file output/LOAD24_data.csv;
     interval 60;
-    property LOAD24:base_power_C, Bus458:measured_power.real, Bus458:measured_power.imag, inv_24_sol:VA_Out.real, inv_24_batt:VA_Out.real, Bus458:measured_voltage_C.real, Bus458:measured_voltage_C.imag, Bus458:measured_current_C.real, Bus458:measured_current_C.imag;
+    property LOAD24:base_power_C, Bus458:measured_power.real, Bus458:measured_power.imag, inv_24_sol:VA_Out.real, inv_24_batt:VA_Out.real, Bus458:measured_voltage_C.real, Bus458:measured_voltage_C.imag, Bus458:measured_current_C.real, Bus458:measured_current_C.imag, batt_24:state_of_charge;
 }
     
 
@@ -277,7 +277,7 @@ object multi_recorder {
     name LOAD25_data;
     file output/LOAD25_data.csv;
     interval 60;
-    property LOAD25:base_power_A, Bus502:measured_power.real, Bus502:measured_power.imag, inv_25_sol:VA_Out.real, inv_25_batt:VA_Out.real, Bus502:measured_voltage_A.real, Bus502:measured_voltage_A.imag, Bus502:measured_current_A.real, Bus502:measured_current_A.imag;
+    property LOAD25:base_power_A, Bus502:measured_power.real, Bus502:measured_power.imag, inv_25_sol:VA_Out.real, inv_25_batt:VA_Out.real, Bus502:measured_voltage_A.real, Bus502:measured_voltage_A.imag, Bus502:measured_current_A.real, Bus502:measured_current_A.imag, batt_25:state_of_charge;
 }
     
 
@@ -286,7 +286,7 @@ object multi_recorder {
     name LOAD26_data;
     file output/LOAD26_data.csv;
     interval 60;
-    property LOAD26:base_power_B, Bus522:measured_power.real, Bus522:measured_power.imag, inv_26_sol:VA_Out.real, inv_26_batt:VA_Out.real, Bus522:measured_voltage_B.real, Bus522:measured_voltage_B.imag, Bus522:measured_current_B.real, Bus522:measured_current_B.imag;
+    property LOAD26:base_power_B, Bus522:measured_power.real, Bus522:measured_power.imag, inv_26_sol:VA_Out.real, inv_26_batt:VA_Out.real, Bus522:measured_voltage_B.real, Bus522:measured_voltage_B.imag, Bus522:measured_current_B.real, Bus522:measured_current_B.imag, batt_26:state_of_charge;
 }
     
 
@@ -295,7 +295,7 @@ object multi_recorder {
     name LOAD27_data;
     file output/LOAD27_data.csv;
     interval 60;
-    property LOAD27:base_power_C, Bus539:measured_power.real, Bus539:measured_power.imag, inv_27_sol:VA_Out.real, inv_27_batt:VA_Out.real, Bus539:measured_voltage_C.real, Bus539:measured_voltage_C.imag, Bus539:measured_current_C.real, Bus539:measured_current_C.imag;
+    property LOAD27:base_power_C, Bus539:measured_power.real, Bus539:measured_power.imag, inv_27_sol:VA_Out.real, inv_27_batt:VA_Out.real, Bus539:measured_voltage_C.real, Bus539:measured_voltage_C.imag, Bus539:measured_current_C.real, Bus539:measured_current_C.imag, batt_27:state_of_charge;
 }
     
 
@@ -304,7 +304,7 @@ object multi_recorder {
     name LOAD28_data;
     file output/LOAD28_data.csv;
     interval 60;
-    property LOAD28:base_power_C, Bus556:measured_power.real, Bus556:measured_power.imag, inv_28_sol:VA_Out.real, inv_28_batt:VA_Out.real, Bus556:measured_voltage_C.real, Bus556:measured_voltage_C.imag, Bus556:measured_current_C.real, Bus556:measured_current_C.imag;
+    property LOAD28:base_power_C, Bus556:measured_power.real, Bus556:measured_power.imag, inv_28_sol:VA_Out.real, inv_28_batt:VA_Out.real, Bus556:measured_voltage_C.real, Bus556:measured_voltage_C.imag, Bus556:measured_current_C.real, Bus556:measured_current_C.imag, batt_28:state_of_charge;
 }
     
 
@@ -313,7 +313,7 @@ object multi_recorder {
     name LOAD29_data;
     file output/LOAD29_data.csv;
     interval 60;
-    property LOAD29:base_power_A, Bus562:measured_power.real, Bus562:measured_power.imag, inv_29_sol:VA_Out.real, inv_29_batt:VA_Out.real, Bus562:measured_voltage_A.real, Bus562:measured_voltage_A.imag, Bus562:measured_current_A.real, Bus562:measured_current_A.imag;
+    property LOAD29:base_power_A, Bus562:measured_power.real, Bus562:measured_power.imag, inv_29_sol:VA_Out.real, inv_29_batt:VA_Out.real, Bus562:measured_voltage_A.real, Bus562:measured_voltage_A.imag, Bus562:measured_current_A.real, Bus562:measured_current_A.imag, batt_29:state_of_charge;
 }
     
 
@@ -322,7 +322,7 @@ object multi_recorder {
     name LOAD30_data;
     file output/LOAD30_data.csv;
     interval 60;
-    property LOAD30:base_power_A, Bus563:measured_power.real, Bus563:measured_power.imag, inv_30_sol:VA_Out.real, inv_30_batt:VA_Out.real, Bus563:measured_voltage_A.real, Bus563:measured_voltage_A.imag, Bus563:measured_current_A.real, Bus563:measured_current_A.imag;
+    property LOAD30:base_power_A, Bus563:measured_power.real, Bus563:measured_power.imag, inv_30_sol:VA_Out.real, inv_30_batt:VA_Out.real, Bus563:measured_voltage_A.real, Bus563:measured_voltage_A.imag, Bus563:measured_current_A.real, Bus563:measured_current_A.imag, batt_30:state_of_charge;
 }
     
 
@@ -331,7 +331,7 @@ object multi_recorder {
     name LOAD31_data;
     file output/LOAD31_data.csv;
     interval 60;
-    property LOAD31:base_power_A, Bus611:measured_power.real, Bus611:measured_power.imag, inv_31_sol:VA_Out.real, inv_31_batt:VA_Out.real, Bus611:measured_voltage_A.real, Bus611:measured_voltage_A.imag, Bus611:measured_current_A.real, Bus611:measured_current_A.imag;
+    property LOAD31:base_power_A, Bus611:measured_power.real, Bus611:measured_power.imag, inv_31_sol:VA_Out.real, inv_31_batt:VA_Out.real, Bus611:measured_voltage_A.real, Bus611:measured_voltage_A.imag, Bus611:measured_current_A.real, Bus611:measured_current_A.imag, batt_31:state_of_charge;
 }
     
 
@@ -340,7 +340,7 @@ object multi_recorder {
     name LOAD32_data;
     file output/LOAD32_data.csv;
     interval 60;
-    property LOAD32:base_power_C, Bus614:measured_power.real, Bus614:measured_power.imag, inv_32_sol:VA_Out.real, inv_32_batt:VA_Out.real, Bus614:measured_voltage_C.real, Bus614:measured_voltage_C.imag, Bus614:measured_current_C.real, Bus614:measured_current_C.imag;
+    property LOAD32:base_power_C, Bus614:measured_power.real, Bus614:measured_power.imag, inv_32_sol:VA_Out.real, inv_32_batt:VA_Out.real, Bus614:measured_voltage_C.real, Bus614:measured_voltage_C.imag, Bus614:measured_current_C.real, Bus614:measured_current_C.imag, batt_32:state_of_charge;
 }
     
 
@@ -349,7 +349,7 @@ object multi_recorder {
     name LOAD33_data;
     file output/LOAD33_data.csv;
     interval 60;
-    property LOAD33:base_power_C, Bus619:measured_power.real, Bus619:measured_power.imag, inv_33_sol:VA_Out.real, inv_33_batt:VA_Out.real, Bus619:measured_voltage_C.real, Bus619:measured_voltage_C.imag, Bus619:measured_current_C.real, Bus619:measured_current_C.imag;
+    property LOAD33:base_power_C, Bus619:measured_power.real, Bus619:measured_power.imag, inv_33_sol:VA_Out.real, inv_33_batt:VA_Out.real, Bus619:measured_voltage_C.real, Bus619:measured_voltage_C.imag, Bus619:measured_current_C.real, Bus619:measured_current_C.imag, batt_33:state_of_charge;
 }
     
 
@@ -358,7 +358,7 @@ object multi_recorder {
     name LOAD34_data;
     file output/LOAD34_data.csv;
     interval 60;
-    property LOAD34:base_power_A, Bus629:measured_power.real, Bus629:measured_power.imag, inv_34_sol:VA_Out.real, inv_34_batt:VA_Out.real, Bus629:measured_voltage_A.real, Bus629:measured_voltage_A.imag, Bus629:measured_current_A.real, Bus629:measured_current_A.imag;
+    property LOAD34:base_power_A, Bus629:measured_power.real, Bus629:measured_power.imag, inv_34_sol:VA_Out.real, inv_34_batt:VA_Out.real, Bus629:measured_voltage_A.real, Bus629:measured_voltage_A.imag, Bus629:measured_current_A.real, Bus629:measured_current_A.imag, batt_34:state_of_charge;
 }
     
 
@@ -367,7 +367,7 @@ object multi_recorder {
     name LOAD35_data;
     file output/LOAD35_data.csv;
     interval 60;
-    property LOAD35:base_power_B, Bus639:measured_power.real, Bus639:measured_power.imag, inv_35_sol:VA_Out.real, inv_35_batt:VA_Out.real, Bus639:measured_voltage_B.real, Bus639:measured_voltage_B.imag, Bus639:measured_current_B.real, Bus639:measured_current_B.imag;
+    property LOAD35:base_power_B, Bus639:measured_power.real, Bus639:measured_power.imag, inv_35_sol:VA_Out.real, inv_35_batt:VA_Out.real, Bus639:measured_voltage_B.real, Bus639:measured_voltage_B.imag, Bus639:measured_current_B.real, Bus639:measured_current_B.imag, batt_35:state_of_charge;
 }
     
 
@@ -376,7 +376,7 @@ object multi_recorder {
     name LOAD36_data;
     file output/LOAD36_data.csv;
     interval 60;
-    property LOAD36:base_power_B, Bus676:measured_power.real, Bus676:measured_power.imag, inv_36_sol:VA_Out.real, inv_36_batt:VA_Out.real, Bus676:measured_voltage_B.real, Bus676:measured_voltage_B.imag, Bus676:measured_current_B.real, Bus676:measured_current_B.imag;
+    property LOAD36:base_power_B, Bus676:measured_power.real, Bus676:measured_power.imag, inv_36_sol:VA_Out.real, inv_36_batt:VA_Out.real, Bus676:measured_voltage_B.real, Bus676:measured_voltage_B.imag, Bus676:measured_current_B.real, Bus676:measured_current_B.imag, batt_36:state_of_charge;
 }
     
 
@@ -385,7 +385,7 @@ object multi_recorder {
     name LOAD37_data;
     file output/LOAD37_data.csv;
     interval 60;
-    property LOAD37:base_power_B, Bus682:measured_power.real, Bus682:measured_power.imag, inv_37_sol:VA_Out.real, inv_37_batt:VA_Out.real, Bus682:measured_voltage_B.real, Bus682:measured_voltage_B.imag, Bus682:measured_current_B.real, Bus682:measured_current_B.imag;
+    property LOAD37:base_power_B, Bus682:measured_power.real, Bus682:measured_power.imag, inv_37_sol:VA_Out.real, inv_37_batt:VA_Out.real, Bus682:measured_voltage_B.real, Bus682:measured_voltage_B.imag, Bus682:measured_current_B.real, Bus682:measured_current_B.imag, batt_37:state_of_charge;
 }
     
 
@@ -394,7 +394,7 @@ object multi_recorder {
     name LOAD38_data;
     file output/LOAD38_data.csv;
     interval 60;
-    property LOAD38:base_power_B, Bus688:measured_power.real, Bus688:measured_power.imag, inv_38_sol:VA_Out.real, inv_38_batt:VA_Out.real, Bus688:measured_voltage_B.real, Bus688:measured_voltage_B.imag, Bus688:measured_current_B.real, Bus688:measured_current_B.imag;
+    property LOAD38:base_power_B, Bus688:measured_power.real, Bus688:measured_power.imag, inv_38_sol:VA_Out.real, inv_38_batt:VA_Out.real, Bus688:measured_voltage_B.real, Bus688:measured_voltage_B.imag, Bus688:measured_current_B.real, Bus688:measured_current_B.imag, batt_38:state_of_charge;
 }
     
 
@@ -403,7 +403,7 @@ object multi_recorder {
     name LOAD39_data;
     file output/LOAD39_data.csv;
     interval 60;
-    property LOAD39:base_power_C, Bus701:measured_power.real, Bus701:measured_power.imag, inv_39_sol:VA_Out.real, inv_39_batt:VA_Out.real, Bus701:measured_voltage_C.real, Bus701:measured_voltage_C.imag, Bus701:measured_current_C.real, Bus701:measured_current_C.imag;
+    property LOAD39:base_power_C, Bus701:measured_power.real, Bus701:measured_power.imag, inv_39_sol:VA_Out.real, inv_39_batt:VA_Out.real, Bus701:measured_voltage_C.real, Bus701:measured_voltage_C.imag, Bus701:measured_current_C.real, Bus701:measured_current_C.imag, batt_39:state_of_charge;
 }
     
 
@@ -412,7 +412,7 @@ object multi_recorder {
     name LOAD40_data;
     file output/LOAD40_data.csv;
     interval 60;
-    property LOAD40:base_power_B, Bus702:measured_power.real, Bus702:measured_power.imag, inv_40_sol:VA_Out.real, inv_40_batt:VA_Out.real, Bus702:measured_voltage_B.real, Bus702:measured_voltage_B.imag, Bus702:measured_current_B.real, Bus702:measured_current_B.imag;
+    property LOAD40:base_power_B, Bus702:measured_power.real, Bus702:measured_power.imag, inv_40_sol:VA_Out.real, inv_40_batt:VA_Out.real, Bus702:measured_voltage_B.real, Bus702:measured_voltage_B.imag, Bus702:measured_current_B.real, Bus702:measured_current_B.imag, batt_40:state_of_charge;
 }
     
 
@@ -421,7 +421,7 @@ object multi_recorder {
     name LOAD41_data;
     file output/LOAD41_data.csv;
     interval 60;
-    property LOAD41:base_power_B, Bus755:measured_power.real, Bus755:measured_power.imag, inv_41_sol:VA_Out.real, inv_41_batt:VA_Out.real, Bus755:measured_voltage_B.real, Bus755:measured_voltage_B.imag, Bus755:measured_current_B.real, Bus755:measured_current_B.imag;
+    property LOAD41:base_power_B, Bus755:measured_power.real, Bus755:measured_power.imag, inv_41_sol:VA_Out.real, inv_41_batt:VA_Out.real, Bus755:measured_voltage_B.real, Bus755:measured_voltage_B.imag, Bus755:measured_current_B.real, Bus755:measured_current_B.imag, batt_41:state_of_charge;
 }
     
 
@@ -430,7 +430,7 @@ object multi_recorder {
     name LOAD42_data;
     file output/LOAD42_data.csv;
     interval 60;
-    property LOAD42:base_power_C, Bus778:measured_power.real, Bus778:measured_power.imag, inv_42_sol:VA_Out.real, inv_42_batt:VA_Out.real, Bus778:measured_voltage_C.real, Bus778:measured_voltage_C.imag, Bus778:measured_current_C.real, Bus778:measured_current_C.imag;
+    property LOAD42:base_power_C, Bus778:measured_power.real, Bus778:measured_power.imag, inv_42_sol:VA_Out.real, inv_42_batt:VA_Out.real, Bus778:measured_voltage_C.real, Bus778:measured_voltage_C.imag, Bus778:measured_current_C.real, Bus778:measured_current_C.imag, batt_42:state_of_charge;
 }
     
 
@@ -439,7 +439,7 @@ object multi_recorder {
     name LOAD43_data;
     file output/LOAD43_data.csv;
     interval 60;
-    property LOAD43:base_power_C, Bus780:measured_power.real, Bus780:measured_power.imag, inv_43_sol:VA_Out.real, inv_43_batt:VA_Out.real, Bus780:measured_voltage_C.real, Bus780:measured_voltage_C.imag, Bus780:measured_current_C.real, Bus780:measured_current_C.imag;
+    property LOAD43:base_power_C, Bus780:measured_power.real, Bus780:measured_power.imag, inv_43_sol:VA_Out.real, inv_43_batt:VA_Out.real, Bus780:measured_voltage_C.real, Bus780:measured_voltage_C.imag, Bus780:measured_current_C.real, Bus780:measured_current_C.imag, batt_43:state_of_charge;
 }
     
 
@@ -448,7 +448,7 @@ object multi_recorder {
     name LOAD44_data;
     file output/LOAD44_data.csv;
     interval 60;
-    property LOAD44:base_power_B, Bus785:measured_power.real, Bus785:measured_power.imag, inv_44_sol:VA_Out.real, inv_44_batt:VA_Out.real, Bus785:measured_voltage_B.real, Bus785:measured_voltage_B.imag, Bus785:measured_current_B.real, Bus785:measured_current_B.imag;
+    property LOAD44:base_power_B, Bus785:measured_power.real, Bus785:measured_power.imag, inv_44_sol:VA_Out.real, inv_44_batt:VA_Out.real, Bus785:measured_voltage_B.real, Bus785:measured_voltage_B.imag, Bus785:measured_current_B.real, Bus785:measured_current_B.imag, batt_44:state_of_charge;
 }
     
 
@@ -457,7 +457,7 @@ object multi_recorder {
     name LOAD45_data;
     file output/LOAD45_data.csv;
     interval 60;
-    property LOAD45:base_power_B, Bus813:measured_power.real, Bus813:measured_power.imag, inv_45_sol:VA_Out.real, inv_45_batt:VA_Out.real, Bus813:measured_voltage_B.real, Bus813:measured_voltage_B.imag, Bus813:measured_current_B.real, Bus813:measured_current_B.imag;
+    property LOAD45:base_power_B, Bus813:measured_power.real, Bus813:measured_power.imag, inv_45_sol:VA_Out.real, inv_45_batt:VA_Out.real, Bus813:measured_voltage_B.real, Bus813:measured_voltage_B.imag, Bus813:measured_current_B.real, Bus813:measured_current_B.imag, batt_45:state_of_charge;
 }
     
 
@@ -466,7 +466,7 @@ object multi_recorder {
     name LOAD46_data;
     file output/LOAD46_data.csv;
     interval 60;
-    property LOAD46:base_power_A, Bus817:measured_power.real, Bus817:measured_power.imag, inv_46_sol:VA_Out.real, inv_46_batt:VA_Out.real, Bus817:measured_voltage_A.real, Bus817:measured_voltage_A.imag, Bus817:measured_current_A.real, Bus817:measured_current_A.imag;
+    property LOAD46:base_power_A, Bus817:measured_power.real, Bus817:measured_power.imag, inv_46_sol:VA_Out.real, inv_46_batt:VA_Out.real, Bus817:measured_voltage_A.real, Bus817:measured_voltage_A.imag, Bus817:measured_current_A.real, Bus817:measured_current_A.imag, batt_46:state_of_charge;
 }
     
 
@@ -475,7 +475,7 @@ object multi_recorder {
     name LOAD47_data;
     file output/LOAD47_data.csv;
     interval 60;
-    property LOAD47:base_power_C, Bus835:measured_power.real, Bus835:measured_power.imag, inv_47_sol:VA_Out.real, inv_47_batt:VA_Out.real, Bus835:measured_voltage_C.real, Bus835:measured_voltage_C.imag, Bus835:measured_current_C.real, Bus835:measured_current_C.imag;
+    property LOAD47:base_power_C, Bus835:measured_power.real, Bus835:measured_power.imag, inv_47_sol:VA_Out.real, inv_47_batt:VA_Out.real, Bus835:measured_voltage_C.real, Bus835:measured_voltage_C.imag, Bus835:measured_current_C.real, Bus835:measured_current_C.imag, batt_47:state_of_charge;
 }
     
 
@@ -484,7 +484,7 @@ object multi_recorder {
     name LOAD48_data;
     file output/LOAD48_data.csv;
     interval 60;
-    property LOAD48:base_power_A, Bus860:measured_power.real, Bus860:measured_power.imag, inv_48_sol:VA_Out.real, inv_48_batt:VA_Out.real, Bus860:measured_voltage_A.real, Bus860:measured_voltage_A.imag, Bus860:measured_current_A.real, Bus860:measured_current_A.imag;
+    property LOAD48:base_power_A, Bus860:measured_power.real, Bus860:measured_power.imag, inv_48_sol:VA_Out.real, inv_48_batt:VA_Out.real, Bus860:measured_voltage_A.real, Bus860:measured_voltage_A.imag, Bus860:measured_current_A.real, Bus860:measured_current_A.imag, batt_48:state_of_charge;
 }
     
 
@@ -493,7 +493,7 @@ object multi_recorder {
     name LOAD49_data;
     file output/LOAD49_data.csv;
     interval 60;
-    property LOAD49:base_power_A, Bus861:measured_power.real, Bus861:measured_power.imag, inv_49_sol:VA_Out.real, inv_49_batt:VA_Out.real, Bus861:measured_voltage_A.real, Bus861:measured_voltage_A.imag, Bus861:measured_current_A.real, Bus861:measured_current_A.imag;
+    property LOAD49:base_power_A, Bus861:measured_power.real, Bus861:measured_power.imag, inv_49_sol:VA_Out.real, inv_49_batt:VA_Out.real, Bus861:measured_voltage_A.real, Bus861:measured_voltage_A.imag, Bus861:measured_current_A.real, Bus861:measured_current_A.imag, batt_49:state_of_charge;
 }
     
 
@@ -502,7 +502,7 @@ object multi_recorder {
     name LOAD50_data;
     file output/LOAD50_data.csv;
     interval 60;
-    property LOAD50:base_power_B, Bus886:measured_power.real, Bus886:measured_power.imag, inv_50_sol:VA_Out.real, inv_50_batt:VA_Out.real, Bus886:measured_voltage_B.real, Bus886:measured_voltage_B.imag, Bus886:measured_current_B.real, Bus886:measured_current_B.imag;
+    property LOAD50:base_power_B, Bus886:measured_power.real, Bus886:measured_power.imag, inv_50_sol:VA_Out.real, inv_50_batt:VA_Out.real, Bus886:measured_voltage_B.real, Bus886:measured_voltage_B.imag, Bus886:measured_current_B.real, Bus886:measured_current_B.imag, batt_50:state_of_charge;
 }
     
 
@@ -511,7 +511,7 @@ object multi_recorder {
     name LOAD51_data;
     file output/LOAD51_data.csv;
     interval 60;
-    property LOAD51:base_power_A, Bus896:measured_power.real, Bus896:measured_power.imag, inv_51_sol:VA_Out.real, inv_51_batt:VA_Out.real, Bus896:measured_voltage_A.real, Bus896:measured_voltage_A.imag, Bus896:measured_current_A.real, Bus896:measured_current_A.imag;
+    property LOAD51:base_power_A, Bus896:measured_power.real, Bus896:measured_power.imag, inv_51_sol:VA_Out.real, inv_51_batt:VA_Out.real, Bus896:measured_voltage_A.real, Bus896:measured_voltage_A.imag, Bus896:measured_current_A.real, Bus896:measured_current_A.imag, batt_51:state_of_charge;
 }
     
 
@@ -520,7 +520,7 @@ object multi_recorder {
     name LOAD52_data;
     file output/LOAD52_data.csv;
     interval 60;
-    property LOAD52:base_power_A, Bus898:measured_power.real, Bus898:measured_power.imag, inv_52_sol:VA_Out.real, inv_52_batt:VA_Out.real, Bus898:measured_voltage_A.real, Bus898:measured_voltage_A.imag, Bus898:measured_current_A.real, Bus898:measured_current_A.imag;
+    property LOAD52:base_power_A, Bus898:measured_power.real, Bus898:measured_power.imag, inv_52_sol:VA_Out.real, inv_52_batt:VA_Out.real, Bus898:measured_voltage_A.real, Bus898:measured_voltage_A.imag, Bus898:measured_current_A.real, Bus898:measured_current_A.imag, batt_52:state_of_charge;
 }
     
 
@@ -529,7 +529,7 @@ object multi_recorder {
     name LOAD53_data;
     file output/LOAD53_data.csv;
     interval 60;
-    property LOAD53:base_power_B, Bus899:measured_power.real, Bus899:measured_power.imag, inv_53_sol:VA_Out.real, inv_53_batt:VA_Out.real, Bus899:measured_voltage_B.real, Bus899:measured_voltage_B.imag, Bus899:measured_current_B.real, Bus899:measured_current_B.imag;
+    property LOAD53:base_power_B, Bus899:measured_power.real, Bus899:measured_power.imag, inv_53_sol:VA_Out.real, inv_53_batt:VA_Out.real, Bus899:measured_voltage_B.real, Bus899:measured_voltage_B.imag, Bus899:measured_current_B.real, Bus899:measured_current_B.imag, batt_53:state_of_charge;
 }
     
 
@@ -538,7 +538,7 @@ object multi_recorder {
     name LOAD54_data;
     file output/LOAD54_data.csv;
     interval 60;
-    property LOAD54:base_power_A, Bus900:measured_power.real, Bus900:measured_power.imag, inv_54_sol:VA_Out.real, inv_54_batt:VA_Out.real, Bus900:measured_voltage_A.real, Bus900:measured_voltage_A.imag, Bus900:measured_current_A.real, Bus900:measured_current_A.imag;
+    property LOAD54:base_power_A, Bus900:measured_power.real, Bus900:measured_power.imag, inv_54_sol:VA_Out.real, inv_54_batt:VA_Out.real, Bus900:measured_voltage_A.real, Bus900:measured_voltage_A.imag, Bus900:measured_current_A.real, Bus900:measured_current_A.imag, batt_54:state_of_charge;
 }
     
 
@@ -547,6 +547,6 @@ object multi_recorder {
     name LOAD55_data;
     file output/LOAD55_data.csv;
     interval 60;
-    property LOAD55:base_power_A, Bus906:measured_power.real, Bus906:measured_power.imag, inv_55_sol:VA_Out.real, inv_55_batt:VA_Out.real, Bus906:measured_voltage_A.real, Bus906:measured_voltage_A.imag, Bus906:measured_current_A.real, Bus906:measured_current_A.imag;
+    property LOAD55:base_power_A, Bus906:measured_power.real, Bus906:measured_power.imag, inv_55_sol:VA_Out.real, inv_55_batt:VA_Out.real, Bus906:measured_voltage_A.real, Bus906:measured_voltage_A.imag, Bus906:measured_current_A.real, Bus906:measured_current_A.imag, batt_55:state_of_charge;
 }
     

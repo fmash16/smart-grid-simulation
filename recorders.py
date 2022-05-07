@@ -14,7 +14,7 @@ object multi_recorder {
     name LOAD%(number)d_data;
     file output/LOAD%(number)d_data.csv;
     interval 60;
-    property LOAD%(number)d:base_power_%(phase)c, Bus%(bus)d:measured_power.real, Bus%(bus)d:measured_power.imag, inv_%(number)d_sol:VA_Out.real, inv_%(number)d_batt:VA_Out.real, Bus%(bus)d:measured_voltage_%(phase)c.real, Bus%(bus)d:measured_voltage_%(phase)c.imag, Bus%(bus)d:measured_current_%(phase)c.real, Bus%(bus)d:measured_current_%(phase)c.imag;
+    property LOAD%(number)d:base_power_%(phase)c, Bus%(bus)d:measured_power.real, Bus%(bus)d:measured_power.imag, inv_%(number)d_sol:VA_Out.real, inv_%(number)d_batt:VA_Out.real, Bus%(bus)d:measured_voltage_%(phase)c.real, Bus%(bus)d:measured_voltage_%(phase)c.imag, Bus%(bus)d:measured_current_%(phase)c.real, Bus%(bus)d:measured_current_%(phase)c.imag, batt_%(number)d:state_of_charge;
 }
     """ % {'number' : i+1, 'bus' : loadBus[i], 'phase' : phases[i]})
 
