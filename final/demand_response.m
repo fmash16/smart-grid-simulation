@@ -25,7 +25,7 @@ grid on;
 
 opt_Function = @(x)[current_clearing_price*x; k*(x-desired_demand)^2];
 numberOfVars = 1;
-[x, fval] = gamu
+[x, fval] = gamultiob
 
 goal = [current_clearing_price*x_min, 0];
 weight = [1,0];

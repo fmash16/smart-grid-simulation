@@ -37,7 +37,7 @@ object inverter {
     power_factor 1.0;
     inverter_efficiency 0.96;
     rated_power 10 kVA;
-    //flags DELTAMODE;
+    flags DELTAMODE;
     object solar {
         name solar_%(number)d;
         parent inv_%(number)d_sol;
@@ -51,7 +51,7 @@ object inverter {
 	orientation FIXED_AXIS;
 	SOLAR_TILT_MODEL SOLPOS;
 	SOLAR_POWER_MODEL FLATPLATE;
-        //flags DELTAMODE;
+        flags DELTAMODE;
     };
 }
 
@@ -72,7 +72,7 @@ object inverter {
     max_charge_rate 3 kW;
     charge_lockout_time 1;
     discharge_lockout_time 1;
-    //flags DELTAMODE;
+    flags DELTAMODE;
 
     // rated_power 15 kW;        //Per phase rating
     // inverter_efficiency .95;
@@ -96,7 +96,7 @@ object battery {
     round_trip_efficiency 0.81;
     state_of_charge 0.5;
     generator_mode SUPPLY_DRIVEN;
-    //flags DELTAMODE;
+    flags DELTAMODE;
 }
     """ % {'number' : i+1, 'bus' : loadBus[i], 'phase' : phases[i]})
 
@@ -130,7 +130,7 @@ object inverter {
     power_factor 1.0;
     inverter_efficiency 0.96;
     rated_power 10 kVA;
-    //flags DELTAMODE;
+    flags DELTAMODE;
     object solar {
         name solar_%(number)d;
         parent inv_%(number)d_sol;
@@ -144,7 +144,7 @@ object inverter {
 	orientation FIXED_AXIS;
 	SOLAR_TILT_MODEL SOLPOS;
 	SOLAR_POWER_MODEL FLATPLATE;
-        //flags DELTAMODE;
+        flags DELTAMODE;
     };
 }
 
@@ -165,7 +165,7 @@ object inverter {
     max_charge_rate 3 kW;
     charge_lockout_time 1;
     discharge_lockout_time 1;
-    //flags DELTAMODE;
+    flags DELTAMODE;
 
     // rated_power 15 kW;        //Per phase rating
     // inverter_efficiency .95;
@@ -189,7 +189,7 @@ object battery {
     round_trip_efficiency 0.81;
     state_of_charge 0.5;
     generator_mode SUPPLY_DRIVEN;
-    //flags DELTAMODE;
+    flags DELTAMODE;
 }
     """ % {'number' : i+1, 'bus' : loadBus[i], 'phase' : phases[i]})
 
@@ -223,7 +223,7 @@ object inverter {
     power_factor 1.0;
     inverter_efficiency 0.96;
     rated_power 10 kVA;
-    //flags DELTAMODE;
+    flags DELTAMODE;
     object solar {
         name solar_%(number)d;
         parent inv_%(number)d_sol;
@@ -237,7 +237,7 @@ object inverter {
 	orientation FIXED_AXIS;
 	SOLAR_TILT_MODEL SOLPOS;
 	SOLAR_POWER_MODEL FLATPLATE;
-        //flags DELTAMODE;
+        flags DELTAMODE;
     };
 }
 
@@ -258,7 +258,7 @@ object inverter {
     max_charge_rate 3 kW;
     charge_lockout_time 1;
     discharge_lockout_time 1;
-    //flags DELTAMODE;
+    flags DELTAMODE;
 
     // rated_power 15 kW;        //Per phase rating
     // inverter_efficiency .95;
@@ -282,6 +282,6 @@ object battery {
     round_trip_efficiency 0.81;
     state_of_charge 0.5;
     generator_mode SUPPLY_DRIVEN;
-    //flags DELTAMODE;
+    flags DELTAMODE;
 }
     """ % {'number' : i+1, 'bus' : loadBus[i], 'phase' : phases[i]})

@@ -6,7 +6,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD1_player.value*1052.631579;
-    base_power_A LOAD1_player.value*8052.631579;
+    // base_power_A LOAD1_player.value*8052.631579;
+    base_power_A LOAD1_player.value*2;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -25,7 +26,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD2_player.value*1052.631579;
-    base_power_B LOAD2_player.value*8052.631579;
+    // base_power_B LOAD2_player.value*8052.631579;
+    base_power_B LOAD2_player.value*2;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -44,7 +46,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD3_player.value*1052.631579;
-    base_power_A LOAD3_player.value*8052.631579;
+    // base_power_A LOAD3_player.value*8052.631579;
+    base_power_A LOAD3_player.value*2;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -63,7 +66,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD4_player.value*1052.631579;
-    base_power_A LOAD4_player.value*8052.631579;
+    // base_power_A LOAD4_player.value*8052.631579;
+    base_power_A LOAD4_player.value*2;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -82,7 +86,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD5_player.value*1052.631579;
-    base_power_A LOAD5_player.value*8052.631579;
+    // base_power_A LOAD5_player.value*8052.631579;
+    base_power_A LOAD5_player.value*2;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -101,7 +106,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD6_player.value*1052.631579;
-    base_power_B LOAD6_player.value*8052.631579;
+    // base_power_B LOAD6_player.value*8052.631579;
+    base_power_B LOAD6_player.value*2;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -120,7 +126,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD7_player.value*1052.631579;
-    base_power_B LOAD7_player.value*8052.631579;
+    // base_power_B LOAD7_player.value*8052.631579;
+    base_power_B LOAD7_player.value*2;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -139,7 +146,8 @@ object load {
     phases C;
     nominal_voltage 240.00;
     // base_power_C LOAD8_player.value*1052.631579;
-    base_power_C LOAD8_player.value*8052.631579;
+    // base_power_C LOAD8_player.value*8052.631579;
+    base_power_C LOAD8_player.value*2;
     power_fraction_C 1;
     power_pf_C 0.8;
 }
@@ -158,7 +166,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD9_player.value*1052.631579;
-    base_power_A LOAD9_player.value*8052.631579;
+    // base_power_A LOAD9_player.value*8052.631579;
+    base_power_A LOAD9_player.value*2;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -177,7 +186,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD10_player.value*1052.631579;
-    base_power_B LOAD10_player.value*8052.631579;
+    // base_power_B LOAD10_player.value*8052.631579;
+    base_power_B LOAD10_player.value*2;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -196,7 +206,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD11_player.value*1052.631579;
-    base_power_B LOAD11_player.value*8052.631579;
+    // base_power_B LOAD11_player.value*8052.631579;
+    base_power_B LOAD11_player.value*2;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -215,7 +226,8 @@ object load {
     phases C;
     nominal_voltage 240.00;
     // base_power_C LOAD12_player.value*1052.631579;
-    base_power_C LOAD12_player.value*8052.631579;
+    // base_power_C LOAD12_player.value*8052.631579;
+    base_power_C LOAD12_player.value*2;
     power_fraction_C 1;
     power_pf_C 0.8;
 }
@@ -234,7 +246,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD13_player.value*1052.631579;
-    base_power_B LOAD13_player.value*8052.631579;
+    // base_power_B LOAD13_player.value*8052.631579;
+    base_power_B LOAD13_player.value*2;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -253,7 +266,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD14_player.value*1052.631579;
-    base_power_A LOAD14_player.value*8052.631579;
+    // base_power_A LOAD14_player.value*8052.631579;
+    base_power_A LOAD14_player.value*2;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -272,7 +286,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD15_player.value*1052.631579;
-    base_power_B LOAD15_player.value*8052.631579;
+    // base_power_B LOAD15_player.value*8052.631579;
+    base_power_B LOAD15_player.value*2;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -291,7 +306,8 @@ object load {
     phases C;
     nominal_voltage 240.00;
     // base_power_C LOAD16_player.value*1052.631579;
-    base_power_C LOAD16_player.value*8052.631579;
+    // base_power_C LOAD16_player.value*8052.631579;
+    base_power_C LOAD16_player.value*4;
     power_fraction_C 1;
     power_pf_C 0.8;
 }
@@ -310,7 +326,8 @@ object load {
     phases C;
     nominal_voltage 240.00;
     // base_power_C LOAD17_player.value*1052.631579;
-    base_power_C LOAD17_player.value*8052.631579;
+    // base_power_C LOAD17_player.value*8052.631579;
+    base_power_C LOAD17_player.value*4;
     power_fraction_C 1;
     power_pf_C 0.8;
 }
@@ -329,7 +346,8 @@ object load {
     phases C;
     nominal_voltage 240.00;
     // base_power_C LOAD18_player.value*1052.631579;
-    base_power_C LOAD18_player.value*8052.631579;
+    // base_power_C LOAD18_player.value*8052.631579;
+    base_power_C LOAD18_player.value*4;
     power_fraction_C 1;
     power_pf_C 0.8;
 }
@@ -348,7 +366,8 @@ object load {
     phases C;
     nominal_voltage 240.00;
     // base_power_C LOAD19_player.value*1052.631579;
-    base_power_C LOAD19_player.value*8052.631579;
+    // base_power_C LOAD19_player.value*8052.631579;
+    base_power_C LOAD19_player.value*4;
     power_fraction_C 1;
     power_pf_C 0.8;
 }
@@ -367,7 +386,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD20_player.value*1052.631579;
-    base_power_A LOAD20_player.value*8052.631579;
+    // base_power_A LOAD20_player.value*8052.631579;
+    base_power_A LOAD20_player.value*4;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -386,7 +406,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD21_player.value*1052.631579;
-    base_power_A LOAD21_player.value*8052.631579;
+    // base_power_A LOAD21_player.value*8052.631579;
+    base_power_A LOAD21_player.value*4;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -405,7 +426,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD22_player.value*1052.631579;
-    base_power_A LOAD22_player.value*8052.631579;
+    // base_power_A LOAD22_player.value*8052.631579;
+    base_power_A LOAD22_player.value*4;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -424,7 +446,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD23_player.value*1052.631579;
-    base_power_B LOAD23_player.value*8052.631579;
+    // base_power_B LOAD23_player.value*8052.631579;
+    base_power_B LOAD23_player.value*4;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -443,7 +466,8 @@ object load {
     phases C;
     nominal_voltage 240.00;
     // base_power_C LOAD24_player.value*1052.631579;
-    base_power_C LOAD24_player.value*8052.631579;
+    // base_power_C LOAD24_player.value*8052.631579;
+    base_power_C LOAD24_player.value*4;
     power_fraction_C 1;
     power_pf_C 0.8;
 }
@@ -462,7 +486,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD25_player.value*1052.631579;
-    base_power_A LOAD25_player.value*8052.631579;
+    // base_power_A LOAD25_player.value*8052.631579;
+    base_power_A LOAD25_player.value*4;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -481,7 +506,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD26_player.value*1052.631579;
-    base_power_B LOAD26_player.value*8052.631579;
+    // base_power_B LOAD26_player.value*8052.631579;
+    base_power_B LOAD26_player.value*4;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -500,7 +526,8 @@ object load {
     phases C;
     nominal_voltage 240.00;
     // base_power_C LOAD27_player.value*1052.631579;
-    base_power_C LOAD27_player.value*8052.631579;
+    // base_power_C LOAD27_player.value*8052.631579;
+    base_power_C LOAD27_player.value*4;
     power_fraction_C 1;
     power_pf_C 0.8;
 }
@@ -519,7 +546,8 @@ object load {
     phases C;
     nominal_voltage 240.00;
     // base_power_C LOAD28_player.value*1052.631579;
-    base_power_C LOAD28_player.value*8052.631579;
+    // base_power_C LOAD28_player.value*8052.631579;
+    base_power_C LOAD28_player.value*4;
     power_fraction_C 1;
     power_pf_C 0.8;
 }
@@ -538,7 +566,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD29_player.value*1052.631579;
-    base_power_A LOAD29_player.value*8052.631579;
+    // base_power_A LOAD29_player.value*8052.631579;
+    base_power_A LOAD29_player.value*4;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -557,7 +586,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD30_player.value*1052.631579;
-    base_power_A LOAD30_player.value*8052.631579;
+    // base_power_A LOAD30_player.value*8052.631579;
+    base_power_A LOAD30_player.value*4;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -576,7 +606,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD31_player.value*1052.631579;
-    base_power_A LOAD31_player.value*8052.631579;
+    // base_power_A LOAD31_player.value*8052.631579;
+    base_power_A LOAD31_player.value*4;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -595,7 +626,8 @@ object load {
     phases C;
     nominal_voltage 240.00;
     // base_power_C LOAD32_player.value*1052.631579;
-    base_power_C LOAD32_player.value*8052.631579;
+    // base_power_C LOAD32_player.value*8052.631579;
+    base_power_C LOAD32_player.value*4;
     power_fraction_C 1;
     power_pf_C 0.8;
 }
@@ -614,7 +646,8 @@ object load {
     phases C;
     nominal_voltage 240.00;
     // base_power_C LOAD33_player.value*1052.631579;
-    base_power_C LOAD33_player.value*8052.631579;
+    // base_power_C LOAD33_player.value*8052.631579;
+    base_power_C LOAD33_player.value*4;
     power_fraction_C 1;
     power_pf_C 0.8;
 }
@@ -633,7 +666,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD34_player.value*1052.631579;
-    base_power_A LOAD34_player.value*8052.631579;
+    // base_power_A LOAD34_player.value*8052.631579;
+    base_power_A LOAD34_player.value*4;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -652,7 +686,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD35_player.value*1052.631579;
-    base_power_B LOAD35_player.value*8052.631579;
+    // base_power_B LOAD35_player.value*8052.631579;
+    base_power_B LOAD35_player.value*4;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -671,7 +706,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD36_player.value*1052.631579;
-    base_power_B LOAD36_player.value*8052.631579;
+    // base_power_B LOAD36_player.value*8052.631579;
+    base_power_B LOAD36_player.value*4;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -690,7 +726,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD37_player.value*1052.631579;
-    base_power_B LOAD37_player.value*8052.631579;
+    // base_power_B LOAD37_player.value*8052.631579;
+    base_power_B LOAD37_player.value*4;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -709,7 +746,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD38_player.value*1052.631579;
-    base_power_B LOAD38_player.value*8052.631579;
+    // base_power_B LOAD38_player.value*8052.631579;
+    base_power_B LOAD38_player.value*4;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -728,7 +766,8 @@ object load {
     phases C;
     nominal_voltage 240.00;
     // base_power_C LOAD39_player.value*1052.631579;
-    base_power_C LOAD39_player.value*8052.631579;
+    // base_power_C LOAD39_player.value*8052.631579;
+    base_power_C LOAD39_player.value*4;
     power_fraction_C 1;
     power_pf_C 0.8;
 }
@@ -747,7 +786,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD40_player.value*1052.631579;
-    base_power_B LOAD40_player.value*8052.631579;
+    // base_power_B LOAD40_player.value*8052.631579;
+    base_power_B LOAD40_player.value*4;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -766,7 +806,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD41_player.value*1052.631579;
-    base_power_B LOAD41_player.value*8052.631579;
+    // base_power_B LOAD41_player.value*8052.631579;
+    base_power_B LOAD41_player.value*8;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -785,7 +826,8 @@ object load {
     phases C;
     nominal_voltage 240.00;
     // base_power_C LOAD42_player.value*1052.631579;
-    base_power_C LOAD42_player.value*8052.631579;
+    // base_power_C LOAD42_player.value*8052.631579;
+    base_power_C LOAD42_player.value*8;
     power_fraction_C 1;
     power_pf_C 0.8;
 }
@@ -804,7 +846,8 @@ object load {
     phases C;
     nominal_voltage 240.00;
     // base_power_C LOAD43_player.value*1052.631579;
-    base_power_C LOAD43_player.value*8052.631579;
+    // base_power_C LOAD43_player.value*8052.631579;
+    base_power_C LOAD43_player.value*8;
     power_fraction_C 1;
     power_pf_C 0.8;
 }
@@ -823,7 +866,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD44_player.value*1052.631579;
-    base_power_B LOAD44_player.value*8052.631579;
+    // base_power_B LOAD44_player.value*8052.631579;
+    base_power_B LOAD44_player.value*8;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -842,7 +886,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD45_player.value*1052.631579;
-    base_power_B LOAD45_player.value*8052.631579;
+    // base_power_B LOAD45_player.value*8052.631579;
+    base_power_B LOAD45_player.value*8;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -861,7 +906,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD46_player.value*1052.631579;
-    base_power_A LOAD46_player.value*8052.631579;
+    // base_power_A LOAD46_player.value*8052.631579;
+    base_power_A LOAD46_player.value*8;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -880,7 +926,8 @@ object load {
     phases C;
     nominal_voltage 240.00;
     // base_power_C LOAD47_player.value*1052.631579;
-    base_power_C LOAD47_player.value*8052.631579;
+    // base_power_C LOAD47_player.value*8052.631579;
+    base_power_C LOAD47_player.value*8;
     power_fraction_C 1;
     power_pf_C 0.8;
 }
@@ -899,7 +946,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD48_player.value*1052.631579;
-    base_power_A LOAD48_player.value*8052.631579;
+    // base_power_A LOAD48_player.value*8052.631579;
+    base_power_A LOAD48_player.value*8;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -918,7 +966,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD49_player.value*1052.631579;
-    base_power_A LOAD49_player.value*8052.631579;
+    // base_power_A LOAD49_player.value*8052.631579;
+    base_power_A LOAD49_player.value*8;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -937,7 +986,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD50_player.value*1052.631579;
-    base_power_B LOAD50_player.value*8052.631579;
+    // base_power_B LOAD50_player.value*8052.631579;
+    base_power_B LOAD50_player.value*8;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -956,7 +1006,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD51_player.value*1052.631579;
-    base_power_A LOAD51_player.value*8052.631579;
+    // base_power_A LOAD51_player.value*8052.631579;
+    base_power_A LOAD51_player.value*8;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -975,7 +1026,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD52_player.value*1052.631579;
-    base_power_A LOAD52_player.value*8052.631579;
+    // base_power_A LOAD52_player.value*8052.631579;
+    base_power_A LOAD52_player.value*8;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -994,7 +1046,8 @@ object load {
     phases B;
     nominal_voltage 240.00;
     // base_power_B LOAD53_player.value*1052.631579;
-    base_power_B LOAD53_player.value*8052.631579;
+    // base_power_B LOAD53_player.value*8052.631579;
+    base_power_B LOAD53_player.value*8;
     power_fraction_B 1;
     power_pf_B 0.8;
 }
@@ -1013,7 +1066,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD54_player.value*1052.631579;
-    base_power_A LOAD54_player.value*8052.631579;
+    // base_power_A LOAD54_player.value*8052.631579;
+    base_power_A LOAD54_player.value*8;
     power_fraction_A 1;
     power_pf_A 0.8;
 }
@@ -1032,7 +1086,8 @@ object load {
     phases A;
     nominal_voltage 240.00;
     // base_power_A LOAD55_player.value*1052.631579;
-    base_power_A LOAD55_player.value*8052.631579;
+    // base_power_A LOAD55_player.value*8052.631579;
+    base_power_A LOAD55_player.value*8;
     power_fraction_A 1;
     power_pf_A 0.8;
 }

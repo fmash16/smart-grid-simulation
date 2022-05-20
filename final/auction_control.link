@@ -14,7 +14,7 @@ global clock
 on_init ans=GLD_OK;
 
 # Matlab command on snc / co-simulation
-on_sync [bid, quantity_A, quantity_B, quantity_C] = auction_controller(current_price, avg_price, std_dev, demand_A, demand_B, demand_C); ans=TS_NEVER; 
+on_sync [bid, quantity_A] = auction_controller(current_price, avg_price, std_dev, demand_A); ans=TS_NEVER; 
 
 # Matlab command on term (after co-simulation)
 on_term ans=GLD_OK;
@@ -25,11 +25,7 @@ export Market_1.current_price_mean_24h avg_price
 export Market_1.current_price_stdev_24h std_dev 
 
 export LOAD4_player.value demand_A
-export LOAD4_player.value demand_B
-export LOAD4_player.value demand_C
 
 import house_buyer_1.price bid
 
 import House22.base_power_A quantity_A
-import House22.base_power_B quantity_B
-import House22.base_power_C quantity_C

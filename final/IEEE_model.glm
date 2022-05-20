@@ -5,6 +5,13 @@
 #set profiler=0
 #set relax_naming_rules=1
 
+
+//Deltamode
+// #set deltamode_timestep=100000000       //100 ms
+// #set deltamode_maximumtime=60000000000  //1 minute
+// #set deltamode_iteration_limit=10       //Iteration limit
+
+
 //********************************************* 
 clock {
     // timezone PST+8PDT;
@@ -31,6 +38,10 @@ object climate {
 };
 
 module powerflow{
+    // enable_subsecond_models true;   //Enables deltamode for the powerflow module
+    // deltamode_timestep 10.0 ms;     //Good timestep value for electromechanical diesels
+    // all_powerflow_delta true;
+
 	solver_method NR;
 	default_maximum_voltage_error 1e-6;
 	NR_superLU_procs 1;
@@ -38,7 +49,8 @@ module powerflow{
     current_frequency 50;
 };
 module generators {
-    enable_subsecond_models true;
+	// enable_subsecond_models TRUE;
+	// deltamode_timestep 10000000;	//Initial value - dictates how we want the models to run
 }
 module market;
 module assert;
@@ -14745,3 +14757,56 @@ object overhead_line {
 	 configuration _2c_16;
 }
 
+
+// object node {
+//     name generator_node;
+//     // bustype SWING;
+//     phases ABC;
+//     nominal_voltage 6350.852961;
+//     frequency_measure_type PLL;
+//     object recorder {
+//         //flags DELTAMODE;
+//         file "output/generator_node.csv";
+//         interval 1;
+//         limit 100000000000;
+//         property voltage_A,voltage_B,voltage_C,voltage_AB,voltage_BC,voltage_CA,current_A,current_B,current_C,power_A,power_B,power_C,measured_angle_A,measured_frequency_A,measured_angle_B,measured_frequency_B,measured_angle_C,measured_frequency_C,measured_frequency;
+//     };
+// }
+// 
+// object diesel_dg {
+//     name DIESEL_1;
+//     parent generator_node;
+//     flags DELTAMODE;        //Enable deltamode on the model
+//     Rated_V 11000.0;         //Need to set the Line-to-line rating
+//     Rated_VA 1.0 MVA;       //Just picked an arbitrary size
+// 
+//     //Gen_type SYNCHRONOUS;         //This value does nothing
+//     Gen_type DYN_SYNCHRONOUS;       //This is the proper value
+//     rotor_speed_convergence 0.0001;   //Define the "exit out of deltamode back to normal mode" criterion
+// 
+//     // Gen_mode CONSTANTE;          //This property does nothing
+//     power_out_A 4000.000000;        //When on the SWING node, these values do nothing (powerflow overrides them for initial conditions)
+//     power_out_B 4000.000000;        //Just set to a really low value to suppress the warning
+//     power_out_C 4000.000000;
+// 
+//     Exciter_type SEXS;      //Give it voltage control
+//     Governor_type DEGOV1;   //Make it try to maintain frequency
+//     //Recorder for some interesting properties of the generator
+//     object recorder {
+//         property rotor_speed,rotor_angle,flux1d,flux2q,EpRotated,VintRotated,Eint_A,Eint_B,Eint_C,Irotated,pwr_electric.real,pwr_electric.imag,pwr_mech;
+//         flags DELTAMODE;
+//         interval 1;
+//         file "output/Gen_1_values.csv";
+//     };
+// 
+// }
+// 
+// 
+// object overhead_line {
+//       name generator_branch;
+//       phases ABCN;
+//       from generator_node;
+//       to SourceBus_1;
+//       length 50;
+//       configuration _2c__0225;
+// }
